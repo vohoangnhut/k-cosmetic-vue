@@ -1,0 +1,61 @@
+.app-body {
+    min-height: 100vh;
+    background: #fff;
+    
+    .banner-wrapper {
+        background-image: url('~images/top-bg@2x.png');
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: cover;        
+        width: 100%;
+        height: 160px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        padding: 50px 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .content-banner {
+            margin: 0 auto;
+            float: none;
+            display: table;
+        }
+        .icon .uploading-avatar-sidebar .text-uploading {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .title {
+            display: inline-block;
+            margin: 0;
+            font-size: 20px;
+            color: #fff;
+            span {
+                &.username {
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .content-wrapper {
+        width: 100%;
+        position: relative;
+        min-height: calc(100vh - 160px);
+        left: 0;
+        right: 0;
+        z-index: 2;
+        overflow: visible;
+        margin-top: 160px;
+        float: left;
+        padding-top: 40px;
+        background: #e5e5e5;
+    }
+    .content-wrapper .main {
+        min-height: 500px;
+    }
+}

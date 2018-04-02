@@ -1,0 +1,9 @@
+/build/
+/config/
+/dist/
+/*.js
+/test/unit/coverage/
+node_modules
+webpack/*.js
+/src/modules/employees/data.js
+/src/libs/index.js

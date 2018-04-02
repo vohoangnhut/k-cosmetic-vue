@@ -1,0 +1,141 @@
+.app-header {
+    &.navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+        background: rgba(0, 0, 0, .1);
+        position: fixed;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+    .navbar-top-wrapper {
+        i {
+            font-size: 20px;
+        }
+        .navbar-left {
+            padding-left: 0;
+            img:nth-child(2) {
+                padding-left: 10px;
+            }
+            .btn-none {
+                transition: background-color .5s ease;
+                background-color: transparent;
+                border-style: none;
+                outline: 0;
+                float: left;
+                padding-left: 20px;
+                padding-right: 20px;
+                color: #fff;
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+        &.sidebar-opened,
+        &.fixed {
+            background: linear-gradient(93deg, #32209d, #9c59b7);
+        }
+        transition: all 300ms ease-in-out;
+        padding: 0;
+        margin: 0;
+        line-height: 50px;
+        max-height: 50px;
+        vertical-align: middle;
+        z-index: 1100;
+        display: flex;
+        text-align: center;
+        color: #fff;
+        .navbar-center {
+            >ul {
+                list-style-type: none;
+                display: inline-block;
+                padding: 0;
+                margin: 0;
+                >li {
+                    float: left;
+                    position: relative;
+                    margin: 0 12px;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    cursor: pointer;
+                    >a {
+                        text-decoration: none;
+                        display: block;
+                        position: relative;
+                        color: #fff;
+                        font-size: 14px;
+                        font-weight: 300;
+                        white-space: nowrap;
+                    }
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        height: 3px;
+                        width: 0;
+                        background: 0 0;
+                        transition: width 0.5s ease, background-color 0.5s ease;
+                    }
+                    &:hover:before {
+                        width: 100%;
+                        background: rgba(255, 255, 255, 0.3);
+                        &:nth-child(2) a {
+                            cursor: pointer;
+                        }
+                    }
+                    &.active {
+                        &:before,
+                        &:hover:before {
+                            width: 100%;
+                            background: #fff;
+                        }
+                        a {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+        .navbar-right {
+            a.active {
+                text-decoration: none;
+            }
+            ul {
+                list-style: none;
+                li {
+                    transition: background-color .5s ease;
+                    float: left;
+                    border-left: 1px solid rgba(255, 255, 255, 0.1);
+                    cursor: pointer;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+        }
+    }
+    .navbar-brand {
+        display: block;
+        float: left;
+        width: $navbar-brand-width;
+        height: $navbar-height;
+        padding: $navbar-padding-y $navbar-padding-x;
+        margin-right: 0;
+        background-image: $navbar-brand-logo;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: $navbar-brand-logo-size;
+    }
+}
+
+.navbar-brand {
+    color: $navbar-active-color;
+    @include hover-focus {
+        color: $navbar-active-color;
+    }
+}
