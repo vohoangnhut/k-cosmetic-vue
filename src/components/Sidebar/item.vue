@@ -1,28 +1,20 @@
-<template>
-  <router-link :to="url" class="nav-link">
-    <i :class="icon"></i> {{name}}
-    <b-badge :variant="badge.variant">{{badge.text}}</b-badge>
-  </router-link>
+<template lang="pug">
+router-link(:to="to", tag="li", exact)
+  a
+    i(:class='["now-ui-icons", icon]')
+    p {{title}}
 </template>
 
 <script>
 export default {
   props: {
-    name: {
-      type: String,
-      default: ''
-    },
-    url: {
-      type: String,
-      default: ''
-    },
-    icon: {
-      type: String,
-      default: ''
-    },
-    badge: {
-      default: ''
-    }
-  }
+    to: String,
+    title: String,
+    icon: String,
+  },
 };
 </script>
+
+<style>
+
+</style>

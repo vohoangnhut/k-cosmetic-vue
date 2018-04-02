@@ -1,50 +1,49 @@
 <template lang="pug">
-.sidebar(:class='{ opened: opened }')
-  nav.sidebar-nav
-    div(slot='header')
-    ul.nav()
-      router-link.nav-link(v-for="m in menus", :key="m.path" :to="m.path")
-        i(:class='m.icon')
-        |  {{m.name}}
-    slot
-    div(slot='footer')
+.sidebar(data-color='orange')
+  .logo
+    a.simple-text.logo-mini(href='http://credit-score.com')
+      | CS
+    a.simple-text.logo-normal(href='http://credit-score.com')
+      | Credit Score
+  .sidebar-wrapper
+    ul.nav
+      item(to='/', title='Dashboard', icon="design_app")
+      item(to='profile', title='Profile', icon="users_circle-08")
+      item(to='user', title='User', icon="users_single-02", v-if='isAdmin')
+      item(to='log', title='Log', icon="files_single-copy-04", v-if='isAdmin')      
+      item(to='ciccfg', title='CIC Config', icon="loader_gear", v-if='isAdmin')
+      item(to='cfgselfdeclare', title='Tự Khai', icon="design-2_ruler-pencil", v-if='isAdmin')
+      item(to='result', title='Kết Quả', icon="files_paper", v-if='isAdmin')
+      item(to='setting', title='Cài Đặt', icon="ui-2_settings-90", v-if='isAdmin')
+      item(to='dbdn', title='Import', icon="arrows-1_cloud-upload-94", v-if='isAdmin')
+
+      
 </template>
+
 <script>
+import { mapGetters, mapActions, mapMutations } from 'vuex';
+import Item from './item';
+
 export default {
-  name: 'sidebar',
-  props: {
-    opened: Boolean
+  components: {
+    Item
   },
 
-  components: {},
-
-
-  data() {
-    return {
-      menus : [
-        
-      { path: 'surveys', name: 'Danh Sách Khảo Sát' ,icon: 'fa fa-list-ol' },
-      // { path: 'questions', name: 'Câu Hỏi' ,icon: 'fa fa-question-circle-o' },
-      // { path: 'brands', name: 'Nhãn Hiệu' ,icon: 'fa fa-sitemap' },
-      // { path: 'foodtypes', name: 'Loại Thức Ăn' ,icon: 'fa fa-shopping-basket' },
-      // { path: 'foods', name: 'Thức Ăn' ,icon: 'fa fa-codiepie' },
-      //{ path: 'upload', name: 'Upload' ,icon: 'fa fa-upload' },
-      { path: 'maps', name: 'Maps' ,icon: 'fa fa-map-marker' },
-      { path: 'steps', name: 'Câu Hỏi' ,icon: 'fa fa-question-circle-o' },
-      ],
-    };
+  computed: {
+    ...mapGetters('session', ['me']),
+    isAdmin() {
+      if(this.me){
+        if(this.me.user_type === 'admin')
+          return true
+        else
+          return false
+      }
+      return false
+    },
   },
-
-  methods: {}
 };
 </script>
 
-<style lang="css">
-.nav-link {
-  cursor: pointer;
-}
+<style scoped>
 
-.sidebar > .sidebar-nav > .nav > .nav-link > i {
-  color :#fff !important;
-}
 </style>

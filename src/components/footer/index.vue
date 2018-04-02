@@ -1,30 +1,35 @@
 <template lang="pug">
 footer.footer
-  .container
+  .container-fluid
     nav
       ul
         li
-          a(href='http://www.fibo.vn') Fibo Group
+          a(href='https://ltv.vn')
+            | LTV Co., Ltd
         li
-          a(href='http://www.news.fibo.vn') News
+          a(href='https://ltv.vn/about')
+            | About Us
+        li
+          a(href='https://blog.ltv.vn')
+            | Blog
     .copyright
-      span
-        | COPYRIGHT
-        | © 
-        | {{currentYear}}
-        | FIBO
+      | ©
+      | {{year}} 
+      a(href='https://ltv.vn', target='_blank') LTV Co., Ltd
+      | .
 </template>
 
 <script>
 export default {
   data() {
+    const year = new Date().getFullYear();
     return {
-      currentYear: 2017
-    }
-  },
-
-  created() {
-    this.currentYear = new Date().getFullYear();
+      year
+    };
   }
 };
 </script>
+
+<style>
+
+</style>

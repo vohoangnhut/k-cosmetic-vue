@@ -48,7 +48,7 @@ const createApp = user => new Vue({
   store,
   template: '<App/>',
   components: {
-    App: user ? App : AuthApp
+    App: user ? AuthApp : App 
   }
 });
 

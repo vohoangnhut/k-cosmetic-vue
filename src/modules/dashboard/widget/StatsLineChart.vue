@@ -26,11 +26,11 @@ div(v-loading.fullscreen.lock='loading')
 
           
 
-    line-chart(:ref='chartId',
-              :chart-id='chartId',
-              :chart-data='chartData',
-              :options='chartOpts',
-              :height='400')
+    //- line-chart(:ref='chartId',
+    //-           :chart-id='chartId',
+    //-           :chart-data='chartData',
+    //-           :options='chartOpts',
+    //-           :height='400')
 </template>
 
 <script>
@@ -40,7 +40,7 @@ import _ from 'lodash';
 import { apiUrl } from '../../../config';
 import  { PROVINCE, DISTRICT }  from '../../../libs/index'
 
-import LineChart from '../../../components/linechart';
+// import LineChart from '../../../components/linechart';
 
 const DATE_FORMAT = 'YYYY-MM-DD';
 const DEFAULT_OPTIONS = {
@@ -117,7 +117,7 @@ export default {
   },
 
   components: {
-    LineChart
+    //LineChart
   },
 
   data() {

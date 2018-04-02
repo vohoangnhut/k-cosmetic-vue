@@ -1,57 +1,35 @@
-<template lang='pug'>
+<template lang="pug">
 .app
-  top-nav(@onToggleClick='onToggleClick', :sidebar-opened='sidebar.opened', :fixed='navFixed')
-  sidebar(:opened='sidebar.opened')
-  .app-body(style="background-image: linear-gradient(#6891a2, #409eff);")
-    .container-fluid
-      .row
-        banner(@onFixed='onFixed')
-        .content-wrapper(:class='{ fixed: navFixed }')
-          .main.col-md-12
-            router-view.animated.fadeIn(keep-alive)
-  .transparent-fullscreen(v-if='sidebar.opened', :class='{ "sidebar-opened": sidebar.opened }', @click='onToggleClick')
-
+  top-nav
+  .wrapper
+    router-view.animated.fadeIn(keep-alive)
+  //- app-footer(v-if='allowFooter')
 </template>
 
 <script>
-import TopNav from './components/TopNav/index';
-import Sidebar from './components/Sidebar/index';
-import Banner from './components/Banner/index';
+import Vue from 'vue';
+import { TopNav, Footer as AppFooter } from './components';
 
 export default {
   components: {
     TopNav,
-    Sidebar,
-    Banner
+    AppFooter
   },
 
   data() {
     return {
-      sidebar: {
-        opened: false
-      },
-      navFixed: false
-    };
-  },
-
-  methods: {
-    onToggleClick() {
-      this.sidebar.opened = !this.sidebar.opened;
-    },
-
-    onFixed(flag) {
-      this.navFixed = flag;
+      allowFooter: true
     }
   },
 
-  mounted() {}
+  created() {
+    const { footer } = this.$route.matched[0].meta;
+    this.allowFooter = footer === false ? false : true;
+  }
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/';
-</style>
 
 <style lang='scss'>
-@import '~assets/scss/app.scss';
+@import '~assets/scss/frontend.scss';
 </style>

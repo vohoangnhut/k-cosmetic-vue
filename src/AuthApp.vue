@@ -23,7 +23,6 @@ import {
   Sidebar,
   BigChart,
 } from './components/';
-import Service from './service';
 
 export default {
   /**
@@ -46,29 +45,14 @@ export default {
     return {
       wsReconnecting: false,
       miniSidebar: false,
+      isDashboard: false
       //chartData: [],
       //chartLabels: [],
     };
   },
 
   computed: {
-    ...mapGetters('dashboard', ['bigChartDatas']),
-    
-    isDashboard() {
-      return this.$route.name === 'dashboard' || this.$route.path === '/';
-    },
-
-    name() {
-      return this.$route.name;
-    },
-
-    userSession() {
-      return this.$store.getters;
-    },
-
-    pannelHeaderSize() {
-      return [this.isDashboard() ? 'panel-header-lg' : 'panel-header-sm'];
-    },
+ 
   },
 
   watch: {
@@ -79,25 +63,7 @@ export default {
   },
 
   methods: {
-    ...mapActions('session', ['getSessionUser']),
-    ...mapActions('dashboard', [
-       'getBigChartData'
-    ]),
-
-    update: function(vm) {
-      if (vm == null) return;
-
-      let i = vm._watchers.length;
-      while (i--) vm._watchers[i].update(true);
-
-      let children = vm.$children;
-      i = children.length;
-      while (i--) this.update(children[i]);
-    },
-
-    toggleSidebar() {
-      this.miniSidebar = !this.miniSidebar;
-    },
+    
   },
 
   /**
@@ -105,40 +71,12 @@ export default {
    */
   created() {
     console.log('App started!');
-    window.app = this;
-    if (this.isDashboard) {
-      this.getBigChartData();
-      // search big chart in dashboard
-      // Thay vì setTimeout, nhớ lây dữ liệu từ sevice.
-      // const data = [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95];
-      // const labels = [
-      //   'JAN',
-      //   'FEB',
-      //   'MAR',
-      //   'APR',
-      //   'MAY',
-      //   'JUN',
-      //   'JUL',
-      //   'AUG',
-      //   'SEP',
-      //   'OCT',
-      //   'NOV',
-      //   'DEC',
-      // ];
-      // setTimeout(() => {
-      //   this.chartData = data;
-      //   this.chartLabels = labels;
-      // }, 1000);
-
-    }
-
-    this.getSessionUser();
   },
 };
 </script>
 
 <style lang="scss">
-@import '../../scss/style.scss';
+@import '~assets/scss/style.scss';
 .animated.fadeIn {
   margin-bottom: 30px;
 }

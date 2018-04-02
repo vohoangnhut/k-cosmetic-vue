@@ -3,14 +3,15 @@ import Router from 'vue-router';
 import firebase from 'firebase';
 
 import Dashboard from '@/modules/dashboard';
-import Users from '@/modules/users';
 import Employees from '@/modules/employees';
 import Questions from '@/modules/questions';
 import Upload from '@/modules/upload';
-import Login from '@/modules/session/login';
+//import Login from '@/modules/session/login';
 import Maps from '@/modules/maps';
 import Surveys from '@/modules/surveys';
 import Steps from '@/modules/steps';
+import Login from '@/modules/account/login';
+import Home from '@/modules/home';
 
 Vue.use(Router);
 const router = new Router({
@@ -21,28 +22,18 @@ const router = new Router({
       redirect: '/'
     },
     {
+      path: '/',
+      name: 'Home',
+      component: Home,
+      meta: { title: 'Credit Score – Chấm điểm tín dụng “thần tốc” trong 60s' }
+    },
+    {
       path: '/login',
       name: 'Login',
       component: Login
     },
     {
       path: '/',
-      name: 'Dashboard',
-      component: Dashboard,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/users',
-      name: 'Users',
-      component: Users,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/employees',
       name: 'Employees',
       component: Employees,
       meta: {
