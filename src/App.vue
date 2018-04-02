@@ -48,6 +48,10 @@ export default {
 };
 </script>
 
+<style lang="scss">
+@import '../../scss/';
+</style>
+
 <style lang='scss'>
 @import '~assets/scss/app.scss';
 </style>

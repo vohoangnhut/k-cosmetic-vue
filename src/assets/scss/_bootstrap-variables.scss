@@ -59,7 +59,7 @@ $theme-colors: (
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-transitions:              true;
-$enable-rounded:                  false;
+$enable-rounded:                  true;
 
 // Body
 //
@@ -76,7 +76,6 @@ $font-size-base:                  0.875rem;
 // Breadcrumbs
 
 $breadcrumb-bg:                   #fff;
-$breadcrumb-margin-bottom:        1.5rem;
 
 // Cards
 
