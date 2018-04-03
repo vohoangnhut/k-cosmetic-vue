@@ -1,27 +1,41 @@
 <template lang="pug">
-  .container
-    .card.card-container
-      .card-body
-        img#profile-img.profile-img-card(src='//ssl.gstatic.com/accounts/ui/avatar_2x.png')
-        p#profile-name.profile-name-card
-        el-form.form-signin(:model='formData', status-icon='', @submit.native="login(formData)")
-          el-input#username(type='text', v-model='formData.username', auto-complete='off', placeholder='Username', style="margin-bottom: 8px;")
-          el-input#password(type='password', v-model='formData.password', auto-complete='off' ,
-                            placeholder='Password', style="margin-bottom: 8px;",
-                            @keyup.enter.native='login(formData)')
-          el-button.btn.btn-lg.btn-block(type='primary', @click='login(formData)') Login
-
-
+.page-header(filter-color="orange")
+  .page-header-image
+  .content
+    .container
+      .col-md-5.ml-auto.mr-auto
+        .card.card-login.card-plain
+          form(:model='formData', status-icon='', @submit.prevent="login(formData)")
+            .card-header.text-center
+              .logo-container
+                img(src='~img/now-logo.png', alt='')
+            .card-body
+              .input-group.form-group-no-border.input-lg
+                .input-group-prepend
+                  span.input-group-text
+                    i.now-ui-icons.users_circle-08
+                input.form-control(v-model='formData.username', auto-complete='off', placeholder='Username', type='text')
+              .input-group.form-group-no-border.input-lg
+                .input-group-prepend
+                  span.input-group-text
+                    i.now-ui-icons.objects_key-25
+                input.form-control(type='password',  v-model='formData.password', auto-complete='off' ,
+                                    placeholder='Password',
+                                    @keyup.enter='login(formData)')
+            .card-footer.text-center
+              button.btn.btn-primary.btn-round.btn-lg.btn-block(@click='login(formData)') Login
+  app-footer  
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import { Footer as AppFooter } from '../../components';
 
 export default {
   data() {
     return {
       formData: {
-        email: '',
+        username: '',
         password: ''
       }
     };
@@ -33,50 +47,29 @@ export default {
 };
 </script>
 
-<style scoped>
-.profile-img-card {
-    width: 96px;
-    height: 96px;
-    margin: 0 auto 10px;
-    display: block;
-    border-radius: 50%;
+
+<style lang="scss" scoped>
+
+.logo-container{
+    width: 65px;
+    margin: 0 auto;
+    margin-bottom: 55px;
 }
 
-.profile-name-card {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    margin: 10px 0 0;
-    min-height: 1em;
-}
-
-.container {
-  padding-top: 100px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 15px;
-    padding-left: 15px;
+.page-header {
+  &:after,
+  &:before {
+    position: relative;
+    z-index: 0;
     width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    content: '';
+  }
 }
-
-.card {
-    background-color: #F7F7F7;
-    padding: 20px 25px 30px;
-    margin: 0 auto 25px;
-    border-radius: 2px;
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-}
-
-.card-container.card {
-    max-width: 350px;
-    padding: 40px 40px;
-}
-
-.form-signin #username{
-    direction: ltr;
-    height: 44px !important;
-    font-size: 16px;
-    margin-bottom: 10px !important;
+.page-header-image {
+  background-image: url('~images/bg/login.jpg');
 }
 </style>

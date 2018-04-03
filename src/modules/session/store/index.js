@@ -41,23 +41,8 @@ const mutations = {
       .signInWithEmailAndPassword(username, password)
       .then(
         (user) => {
-
           state.user = user;
-          
-          if('admin@ltv.vn' === username)
-            state.user.role = 'admin';
-
-          //let userId = user.uid;
-          // return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-          //   //console.log(snapshot.val().username);
-          //   //let username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-
-          //   if(snapshot.val()){
-
-          //   }
-          // });
-          
-          window.location.href = '/';
+          window.location.href = '/admin/emp';
         },
         (err) => {
           // eslint-disable-next-line
@@ -68,7 +53,7 @@ const mutations = {
 
   [LOGOUT]() {
     firebase.auth().signOut().then(() => {
-      window.location.href = '/login';
+      window.location.href = '/';
     });
   }
 };

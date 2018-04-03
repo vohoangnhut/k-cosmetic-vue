@@ -54,13 +54,12 @@
 </template>
 
 <script>
-import { Footer as AppFooter } from 'fecore/components';
+import { Footer as AppFooter } from '../../components';
 import toastr from 'fecore/toastr';
-
 
 export default {
   components: {
-    AppFooter
+    AppFooter,
   },
 
   computed: {
@@ -69,23 +68,21 @@ export default {
     },
   },
 
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .padding-top-custom {
-  padding-top: 50px !important; 
+  padding-top: 50px !important;
 }
 .signup-page /deep/ {
   .section {
-    padding-top : 0px;
+    padding-top: 0px;
   }
 }
 .padding-top {
-  padding-top: 150px !important;  
+  padding-top: 150px !important;
 }
 .page-header-image {
   background-image: url('~images/bg/bg32.jpg');

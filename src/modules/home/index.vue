@@ -1,49 +1,194 @@
 <template lang="pug">
-h1 home
-                
+.wrapper
+  .page-header.page-header-small
+    .page-header-image(data-parallax='true')
+    .content-center
+      .row
+        .col-md-8.ml-auto.mr-auto
+          h1.title KIM Comestic
+          h4 Let’s be Beautiful. Be Colorful. and Be You.
+  .section
+    .container
+        .col-md-12
+          .row
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/polo.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+           
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/tom-ford.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+
+              // end card
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/wooyoungmi.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+
+              // end card
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/sweeney.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+
+              // end card
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/kingsman.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+
+              // end card
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/boglioli.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+            
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/polo.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+           
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/tom-ford.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+
+              // end card
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/wooyoungmi.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+
+              // end card
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/sweeney.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/kingsman.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+
+              // end card
+            .col-lg-3.col-md-4
+              .card.card-product.card-plain
+                .card-image
+                  a(href='#')
+                    img(src='~img/boglioli.jpg', alt='...')
+                .card-body
+                  a(href='#')
+                    h4.card-title Impeccably tailored
+                  p.card-description
+                    | 24,000,000 VNĐ
+            
+          .row
+            .ml-auto.mr-auto
+                button.btn.btn-primary.btn-round(rel='tooltip') Load more...
+
   app-footer
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { Footer as AppFooter } from '../../components';
 
 export default {
-  
-
-  data() {
-    return {
-      formCic: {
-        id: '',
-        verifyCode: '',
-        ref: '',
-      },
-
-      visableFinal: false,
-    };
+  components: {
+    AppFooter,
   },
 
-  
+  computed: {
+    currentYear() {
+      return new Date().getFullYear();
+    },
+  },
 
+  methods: {},
 };
 </script>
 
-<style lang="scss">
-.page-header {
-  min-height: 100vh;
-  max-height: 999px;
-  padding: 0;
-  color: #2c2c2c !important;
-  position: relative;
-  overflow: hidden;
-  /deep/ .content {
-    text-align: left;
-  }
-  /deep/ .container {
-    color: #2c2c2c !important;
+<style lang="scss" scoped>
+.padding-top-custom {
+  padding-top: 50px !important;
+}
+.signup-page /deep/ {
+  .section {
+    padding-top: 0px;
   }
 }
+.padding-top {
+  padding-top: 150px !important;
+}
 .page-header-image {
-  background-image: url('~images/bg/pricing1.jpg');
+  background-image: url('~images/bg/bg32.jpg');
   background-size: cover;
   background-position: center center;
   width: 100%;
@@ -51,73 +196,11 @@ export default {
   z-index: -1;
 }
 
-// .removeBorder > input {
-//   border: none !important;
-// }
-
-// .el-form-item {
-//     margin-bottom: 10px !important;
-// }
-
-.fade-main-enter-active,
-.fade-main-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-main-enter,
-.fade-main-leave-to {
-  opacity: 0;
+.img1 {
+  background-image: url('~images/bg/project8.jpg');
 }
 
-.fade-enter-active {
-  transition: all 0.3s ease;
-}
-
-.fade-enter {
-  transform: translateX(10px);
-  opacity: 0;
-}
-
-/*** fullloading ****/
-.el-loading-mask.is-fullscreen {
-  background-color: rgba(44, 62, 80, 0.9) !important;
-}
-
-.el-loading-spinner {
-  display: none;
-}
-.el-counttime {
-  position: fixed;
-  z-index: 11000;
-  // height: 100%;
-  width: 700px;
-  left: 30%;
-  top: 40%;
-  right: 0;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  margin: 0 auto;
-}
-.block {
-  display: flex;
-  flex-direction: column;
-}
-
-.text {
-  color: #1abc9c;
-  font-size: 40px;
-  font-family: 'Roboto Condensed', serif;
-  font-weight: 400;
-  margin-top: -30px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.digit {
-  color: #ecf0f1;
-  font-size: 100px;
-  font-weight: 100;
-  font-family: unset;
-  // margin: 10px;
-  text-align: center;
+.img2 {
+  background-image: url('~images/bg/project9.jpg');
 }
 </style>
