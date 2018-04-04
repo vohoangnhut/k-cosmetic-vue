@@ -1,8 +1,8 @@
 {
-  "name": "masan-census-web",
+  "name": "k-comestic",
   "version": "1.0.0",
-  "description": "Masan census Web Management System",
-  "author": "Luc <luc@ltv.vn>",
+  "description": "Ha Kim Comestic",
+  "author": "Nhut <nhut@ltv.vn>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --history-api-fallback --progress --config build/webpack.dev.conf.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:lucduong/masan-census-web.git"
+    "url": "git@github.com:vohoangnhut/k-cosmetic-vue.git"
   },
   "dependencies": {
     "axios": "^0.17.1",

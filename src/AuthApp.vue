@@ -9,7 +9,6 @@
       .container-fluid
         router-view.animated.fadeIn(keep-alive)
       back-2-top(:duration='400')
-    app-footer
 </template>
 
 <script>
@@ -18,7 +17,6 @@ import { mapActions, mapGetters } from 'vuex';
 
 import {
   Header as AppHeader,
-  Footer as AppFooter,
   Back2Top,
   Sidebar,
   BigChart,
@@ -30,7 +28,6 @@ export default {
    */
   components: {
     AppHeader,
-    AppFooter,
     Back2Top,
     Sidebar,
     BigChart,

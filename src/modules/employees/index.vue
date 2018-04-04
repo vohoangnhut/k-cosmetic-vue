@@ -558,7 +558,7 @@ export default {
   //     });
     this.lstProvince = _.values(PROVINCE);
     this.lstDistrictFull = _.values(DISTRICT);
-    this.getDataFromAPI();
+    //this.getDataFromAPI();
     
   }
 };

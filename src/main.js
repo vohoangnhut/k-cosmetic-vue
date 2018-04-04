@@ -11,7 +11,6 @@ import firebase from 'firebase';
 import VueFire from 'vuefire';
 import axios from 'axios';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
-import * as VueGM from 'vue2-google-maps';
 
 import Vue from 'vue';
 import Vuex from 'vuex';
@@ -27,12 +26,6 @@ Vue.use(ElementUI, { locale });
 Vue.use(BootstrapVue);
 Vue.use(Vuex);
 Vue.use(VueFire);
-Vue.use(VueGM, {
-  load: {
-    key: 'AIzaSyD_Vsr3XlbyfLd_4rVp_L-6l3iJnJrI_I0',//'AIzaSyBhiu5mQa7nDe-Mzc-6YaLn7IRJdDfWVSk',
-    libraries: 'places'
-  }
-});
 
 const firebaseApp = firebase.initializeApp(FIREBASE_CONFIG);
 const db = firebaseApp.database();

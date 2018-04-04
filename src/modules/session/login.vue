@@ -24,12 +24,11 @@
                                     @keyup.enter='login(formData)')
             .card-footer.text-center
               button.btn.btn-primary.btn-round.btn-lg.btn-block(@click='login(formData)') Login
-  app-footer  
+
 </template>
 
 <script>
 import { mapActions } from 'vuex';
-import { Footer as AppFooter } from '../../components';
 
 export default {
   data() {

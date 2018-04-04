@@ -13,15 +13,10 @@ nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.bg-primary.fixed-
       span.navbar-toggler-bar.navbar-kebab
       span.navbar-toggler-bar.navbar-kebab
     #navigation.collapse.navbar-collapse.justify-content-end
-      //- form
-      //-   .input-group.no-border
-      //-     input.form-control(type='text', value='', placeholder='Search...')
-      //-     span.input-group-addon
-      //-       i.now-ui-icons.ui-1_zoom-bold
       ul.navbar-nav
         li.nav-item
           a.nav-link
-            p Xin Chào ! {{this.userLoginName}}
+            p Xin Chào Admin !
         li.nav-item
           a.nav-link(@click="logout")
             i.now-ui-icons.arrows-1_share-66
@@ -35,14 +30,15 @@ import { mapGetters, mapActions, mapState } from 'vuex';
 
 
 export default {
-
+   data() {
+      return {
+        title : '',
+      }
+    },
 
   computed: {
     ...mapActions('session', ['me']),
 
-    userLoginName() {
-      return this.me ? this.me.fullName : '';
-    }
   },
 
   methods: {

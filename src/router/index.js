@@ -5,7 +5,6 @@ import firebase from 'firebase';
 import Dashboard from '@/modules/dashboard';
 import Employees from '@/modules/employees';
 import Questions from '@/modules/questions';
-import Upload from '@/modules/upload';
 import Login from '@/modules/session/login';
 import Maps from '@/modules/maps';
 import Surveys from '@/modules/surveys';
@@ -14,6 +13,7 @@ import Steps from '@/modules/steps';
 import Product from '@/modules/product';
 import About from '@/modules/about';
 import Item from '@/modules/item';
+import Upload from '@/modules/upload';
 
 Vue.use(Router);
 const router = new Router({
@@ -53,7 +53,17 @@ const router = new Router({
         requiresAuth: true,
         title: 'Employees'
       }
+    },
+    {
+      path: '/admin/upload',
+      name: 'Upload',
+      component: Upload,
+      meta: {
+        requiresAuth: true,
+        title: 'Upload'
+      }
     }
+    
   ]
 });
 
