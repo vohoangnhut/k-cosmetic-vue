@@ -7,18 +7,17 @@
         .col-md-8.ml-auto.mr-auto
           h1.title KIM Comestic
           h4 Let’s be Beautiful. Be Colorful. and Be You.
+          h5 Trang này để show sản phẩm, có tên và giá của từng sản phẩm
   .section
     .container
         .col-md-12
           .row
             .col-lg-3.col-md-4
               .card.card-product.card-plain
-                .card-image
-                  a(href='#')
-                    img(src='~img/polo.jpg', alt='...')
+                .card-image(@click='gotoDetails(1)')
+                  img(src='~img/polo.jpg', alt='...')
                 .card-body
-                  a(href='#')
-                    h4.card-title Impeccably tailored
+                  h4.card-title Impeccably tailored
                   p.card-description
                     | 24,000,000 VNĐ
            
@@ -171,7 +170,12 @@ export default {
     },
   },
 
-  methods: {},
+  methods: {
+    gotoDetails(id) {
+      // console.log(id);
+      this.$router.push(`item/${id}`);
+    }
+  },
 };
 </script>
 
@@ -196,11 +200,8 @@ export default {
   z-index: -1;
 }
 
-.img1 {
-  background-image: url('~images/bg/project8.jpg');
+.card-image {
+  cursor: pointer;
 }
 
-.img2 {
-  background-image: url('~images/bg/project9.jpg');
-}
 </style>

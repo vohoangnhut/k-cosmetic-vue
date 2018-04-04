@@ -11,10 +11,10 @@ nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent(color-on-scroll='
     .collapse.navbar-collapse(data-nav-image='../assets/img/blurred-image-1.jpg', data-color='orange')
       ul.navbar-nav.ml-auto
         item(to='/', title='Home', icon="tech_mobile")
+        item(to='/product', title='Sản Phẩm', icon="shopping_bag-16")
         //- item(to='/about', title='About', icon="emoticons_satisfied")
         //- item(to='/qa', title='Hỏi đáp', icon="ui-2_chat-round")
-        //item(to='/login', title='Đăng nhập', icon="users_circle-08", v-if='isHome')
-        item(to='/login', title='Đăng nhập', icon="users_circle-08")
+        item(to='/login', title='Đăng nhập', icon="business_badge")
         //- li.nav-item
         //-   a.nav-link(href='http://fibo.vn/', target='_blank')
         //-     i.now-ui-icons.objects_globe

@@ -11,7 +11,9 @@ import Maps from '@/modules/maps';
 import Surveys from '@/modules/surveys';
 import Steps from '@/modules/steps';
 //import Login from '@/modules/account/login';
-import Home from '@/modules/home';
+import Product from '@/modules/product';
+import About from '@/modules/about';
+import Item from '@/modules/item';
 
 Vue.use(Router);
 const router = new Router({
@@ -22,10 +24,21 @@ const router = new Router({
     },
     {
       path: '/',
-      name: 'Home',
-      component: Home,
-      meta: { requiresAuth: false, title: 'Home' }
+      name: 'About',
+      component: About,
+      meta: { requiresAuth: false, title: 'About' }
     },
+
+    {
+      path: '/product',
+      name: 'Product',
+      component: Product,
+      meta: { requiresAuth: false, title: 'Product' }
+    },
+    { path: '/item/:id', name: 'Item', component: Item, meta: { requiresAuth: false, title: 'Product' } },
+
+
+    
     {
       path: '/login',
       name: 'Login',
