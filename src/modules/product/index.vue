@@ -15,7 +15,7 @@
             .col-lg-3.col-md-4
               .card.card-product.card-plain
                 .card-image(@click='gotoDetails(1)')
-                  img(src='~img/polo.jpg', alt='...')
+                  img(src='https://firebasestorage.googleapis.com/v0/b/k-comestic.appspot.com/o/images%2Fimage-2018-04-05TIWV2JNX..jpg?alt=media&token=e19625d0-e7b9-444e-8f5f-b0d2e179f07f', alt='...')
                 .card-body
                   h4.card-title Impeccably tailored
                   p.card-description

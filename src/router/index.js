@@ -2,18 +2,15 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
 
-import Dashboard from '@/modules/dashboard';
 import Employees from '@/modules/employees';
-import Questions from '@/modules/questions';
 import Login from '@/modules/session/login';
-import Maps from '@/modules/maps';
-import Surveys from '@/modules/surveys';
-import Steps from '@/modules/steps';
 //import Login from '@/modules/account/login';
 import Product from '@/modules/product';
 import About from '@/modules/about';
 import Item from '@/modules/item';
 import Upload from '@/modules/upload';
+import Products from '@/modules/admin/products';
+
 
 Vue.use(Router);
 const router = new Router({
@@ -49,6 +46,14 @@ const router = new Router({
       path: '/admin/emp',
       name: 'Employees',
       component: Employees,
+      meta: {
+        requiresAuth: true,
+        title: 'Employees'
+      }
+    },{
+      path: '/admin/products',
+      name: 'Products',
+      component: Products,
       meta: {
         requiresAuth: true,
         title: 'Employees'

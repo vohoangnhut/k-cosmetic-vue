@@ -1,0 +1,24 @@
+
+function code_generator( len ) {
+  let length = (len)?(len):(5);
+  let string = 'abcdefghijklmnopqrstuvwxyz'; //to upper
+  let numeric = '0123456789';
+  //let punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
+  let password = '';
+  let character = '';
+  let crunch = true;
+  while( password.length<length ) {
+      let entity1 = Math.ceil(string.length * Math.random()*Math.random());
+      let entity2 = Math.ceil(numeric.length * Math.random()*Math.random());
+      //entity3 = Math.ceil(punctuation.length * Math.random()*Math.random());
+      let hold = string.charAt( entity1 );
+      hold = (entity1%2==0)?(hold.toUpperCase()):(hold);
+      character += hold;
+      character += numeric.charAt( entity2 );
+      //character += punctuation.charAt( entity3 );
+      password = character;
+  }
+  return password;
+}
+
+export default code_generator;

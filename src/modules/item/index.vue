@@ -8,8 +8,8 @@
         .col-md-5
           .block
             el-carousel(trigger='click', height='450px')
-              el-carousel-item(v-for='item in 4', :key='item')
-                img(src='~img/pp-1.jpg', alt='First slide')
+              el-carousel-item(v-for='item in imageList', :key='item')
+                img(:src='item.url', alt='First slide')
         .col-md-6.ml-auto.mr-auto
           h2.title  Tên Sản Phẩm
           //h5.category Slim-Fit Leather Biker Jacket
@@ -71,6 +71,38 @@ import { Footer as AppFooter } from '../../components';
 export default {
   components: {
     AppFooter,
+  },
+  data() {
+    return {
+      imageList: [
+        {
+          name: 'food.jpeg',
+          url:
+            'https://firebasestorage.googleapis.com/v0/b/k-comestic.appspot.com/o/images%2Ffb296cb5e122af54612d50dd50ae9f89G6KBS7MS..jpg?alt=media&token=5f1ab82c-9208-4acf-bb38-fd85b506d5d4',
+        },
+        {
+          name: 'food2.jpeg',
+          url:
+            'https://firebasestorage.googleapis.com/v0/b/k-comestic.appspot.com/o/images%2Fapple-macbook-pro-13-inch-2016-1888-0445A1MLXYD..jpg?alt=media&token=0029b534-b822-4b3a-9b61-fab62095f31a',
+        },
+        {
+          name: 'food2.jpeg',
+          url:
+            'https://firebasestorage.googleapis.com/v0/b/k-comestic.appspot.com/o/images%2Fapple-macbook-pro-touch-bar-15-inch-2017-4201-iloveimg-croppedGYWS87Y7..jpg?alt=media&token=0eaace00-7871-4afd-bd22-e84cfc3965d7',
+        },
+        {
+          name: 'food2.jpeg',
+          url:
+            'https://firebasestorage.googleapis.com/v0/b/k-comestic.appspot.com/o/images%2Fimage-2018-04-05TIWV2JNX..jpg?alt=media&token=e19625d0-e7b9-444e-8f5f-b0d2e179f07f',
+        },
+        {
+          name: 'food2.jpeg',
+          url:
+            'https://firebasestorage.googleapis.com/v0/b/k-comestic.appspot.com/o/images%2Fsaint-laurentXTS5AR69..jpg?alt=media&token=4ea3caec-56d3-496d-9a2e-539b553002e1',
+        },
+        
+      ],
+    };
   },
 
   computed: {
