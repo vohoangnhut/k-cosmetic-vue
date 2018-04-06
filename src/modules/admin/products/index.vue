@@ -108,12 +108,12 @@ export default {
         type: 'warning',
       })
         .then(() => {
-          let ref = this.$db.ref('products/' + row['_id']);
+          let ref = this.$db.ref('products/' + row['key']);
 
           ref.remove().then(
             data => {
               this.showNotice('Thông Báo', 'Xoá Thành Công', 'success'); //Warning//Info//Error
-              this.getDataFromAPI();
+              this.getData();
             },
             error => {
               this.showNotice('Lỗi', error, 'Error'); //Warning//Info//Error
@@ -132,7 +132,6 @@ export default {
             let ref = this.$db.ref('products/' + key);
             ref
               .set({
-                //emplCd: this.formData.emplCd ? this.formData.emplCd : '',
                 key: key,
                 name: this.formData.name ? this.formData.name : '',
                 price: this.formData.price ? this.formData.price : '',
@@ -158,6 +157,7 @@ export default {
             this.loading = true;
 
             let dataUpdate = {
+              key: this.formData.key ? this.formData.key : '',
               name: this.formData.name ? this.formData.name : '',
               price: this.formData.price ? this.formData.price : '',
               short_description: this.formData.short_description
@@ -179,7 +179,7 @@ export default {
                     'success',
                   ); //Warning//Info//Error
                   this.showDialogFlg = false;
-                  this.getDataFromAPI();
+                  this.getData();
                   this.loading = false;
                 },
                 error => {
@@ -223,7 +223,7 @@ export default {
       this.$db
         .ref('products')
         .once('value')
-        .then(function(snapshot) {
+        .then( snapshot => {
           let datas = snapshot.val();
           
           if (datas) {

@@ -23,7 +23,9 @@
                         .bottom.clearfix
                             time.time {{ o.time }}
                             el-button.button(type='text', @click='removeImg(index, o)') REMOVE
-
+        el-row
+          vue-dropzone#dropzone(ref='myVueDropzone', :options='dropzoneOptions')
+          
         //- el-progress(:percentage='percentage')
         //- el-form(ref='form', label-width='120px', v-if="percentage === 100 && dialogImageUrl", style="margin-top:20px")
         //-     el-form-item(label='Review Image', style="margin-bottom:0px")
@@ -42,15 +44,33 @@
         //-                             list-type='picture',)
         //-         el-button(size='small', type='primary', :loading='loadingButton') Click to upload
         //-         .el-upload__tip(slot='tip') jpg/png files with a size less than 500kb
+      
+
+      
 
 </template>
 
 <script>
 import toastr from 'toastr';
+import vue2Dropzone from 'vue2-dropzone'
+import 'vue2-dropzone/dist/vue2Dropzone.css'
 
 export default {
+   components: {
+    vue2Dropzone,
+  },
+
+
   data() {
     return {
+
+      dropzoneOptions: {
+          url: 'https://httpbin.org/post',
+          thumbnailWidth: 150,
+          maxFilesize: 0.5,
+          headers: { 'My-Awesome-Header': 'header value' }
+      },
+
       currentDate: new Date(),
 
       percentage: 0,
@@ -67,6 +87,17 @@ export default {
     },
     handlePreview(file) {
       console.log(file);
+    },
+  onChange (image) {
+      console.log('New picture selected!')
+      if (image) {
+        console.log('Picture loaded.')
+        //this.upload(image);
+        console.log(image);
+        this.image = image
+      } else {
+        console.log('FileReader API not supported: use the <form>, Luke!')
+      }
     },
 
     removeImg(index, item) {
@@ -87,6 +118,45 @@ export default {
 
           // Uh-oh, an error occurred!
         });
+    },
+
+    upload(file){
+            const ext = file.name.slice(file.name.lastIndexOf('.'));
+            const fileName = file.name.slice(0, file.name.lastIndexOf('.'));
+            const extraFileName = Math.random()
+              .toString(36)
+              .substring(2, 10)
+              .toUpperCase();
+            let uploadTask = this.$storage
+              .ref('images/' + fileName + extraFileName + '.' + ext)
+              .put(file.raw);
+            uploadTask.on(
+              'state_changed',
+              snapshot => {
+                this.percentage =
+                  snapshot.bytesTransferred / snapshot.totalBytes * 100;
+              },
+              error => {
+                this.loadingButton = false;
+                toastr.toastr(error.FirebaseStorageError.message);
+              },
+              () => {
+                //   console.log(uploadTask.snapshot.metadata.fullPath);
+                //   console.log(uploadTask.snapshot.metadata.name);
+                //   console.log(uploadTask.snapshot.metadata.timeCreated);
+                //   console.log(uploadTask.snapshot.downloadURL);
+                let value = {
+                  name: uploadTask.snapshot.metadata.name,
+                  url: uploadTask.snapshot.downloadURL,
+                  time: uploadTask.snapshot.metadata.timeCreated,
+                  fullPath: uploadTask.snapshot.metadata.fullPath,
+                };
+                this.imageList.push(value);
+                //this.dialogImageUrl = uploadTask.snapshot.downloadURL;
+                this.loadingButton = false;
+                this.$refs.upload.clearFiles();
+              },
+            );
     },
 
     handleChange() {

@@ -42,7 +42,7 @@ const mutations = {
       .then(
         (user) => {
           state.user = user;
-          window.location.href = '/admin/emp';
+          window.location.href = '/admin/products';
         },
         (err) => {
           // eslint-disable-next-line
