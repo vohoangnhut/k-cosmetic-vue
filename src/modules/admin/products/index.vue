@@ -18,21 +18,6 @@ div(v-loading.fullscreen.lock='loading')
             el-tooltip.item(effect='dark', content='Delete', placement='right-start')
               el-button(size='small', type='danger', @click='handleDelete(scope.$index, scope.row)', icon='el-icon-delete')
 
-    br
-
-    el-dialog(title='Details', :visible.sync='showDialogFlg', :modal-append-to-body='false', :close-on-click-modal='false')
-      el-form(:model='formData', label-width='150px', :rules="rules",ref="ruleForm")
-        el-form-item(label='Tên Sản Phẩm',prop="name")
-          el-input( v-model='formData.name')
-        el-form-item(label='Giá')
-          el-input( v-model='formData.price')
-        el-form-item(label='Mô Tả', prop="short_description")  
-          el-input(type='textarea', :rows='2', placeholder='Please input', v-model='formData.short_description')
-        
-      span.dialog-footer(slot='footer')
-        el-button(@click='metHandlerCancel') Đóng
-        el-button(type='primary', @click='handleSave') Lưu
-
 </template>
 
 <script>
@@ -89,16 +74,8 @@ export default {
 
   methods: {
     handleEdit(index, row) {
-      this.formData = {
-        key: row.key ? row.key : '',
-
-        name: row.name ? row.name : '',
-        price: row.price ? row.price : '',
-        short_description: row.short_description ? row.short_description : '',
-      };
-
-      this.isNew = false;
-      this.showDialogFlg = true;
+      const key = row.key ? row.key : '';
+      this.$router.push(`/admin/product/${key}`);
     },
 
     handleDelete(index, row) {
@@ -123,86 +100,17 @@ export default {
         .catch(() => {});
     },
 
-    handleSave() {
-      this.$refs['ruleForm'].validate(valid => {
-        if (valid) {
-          if (this.isNew) {
-            this.loading = true;
-            let key = code_generator(10);
-            let ref = this.$db.ref('products/' + key);
-            ref
-              .set({
-                key: key,
-                name: this.formData.name ? this.formData.name : '',
-                price: this.formData.price ? this.formData.price : '',
-                short_description: this.formData.short_description
-                  ? this.formData.short_description
-                  : '',
-                createdAt: moment().format('DD/MM/YYYY HH:mm:ss'),
-              })
-              .then(
-                data => {
-                  this.showNotice('Thông Báo', 'Lưu Thành Công', 'success');
-                  this.showDialogFlg = false;
-                  this.getData();
-                  //this.getDataFromAPI();
-                  this.loading = false;
-                },
-                error => {
-                  this.showNotice('Lỗi', error, 'Error');
-                  this.loading = false;
-                },
-              );
-          } else {
-            this.loading = true;
-
-            let dataUpdate = {
-              key: this.formData.key ? this.formData.key : '',
-              name: this.formData.name ? this.formData.name : '',
-              price: this.formData.price ? this.formData.price : '',
-              short_description: this.formData.short_description
-                ? this.formData.short_description
-                : '',
-              createdAt: new Date().toString(),
-            };
-
-            let updates = {};
-            updates['products/' + this.formData.key] = dataUpdate;
-            this.$db
-              .ref()
-              .update(updates)
-              .then(
-                data => {
-                  this.showNotice(
-                    'Thông Báo',
-                    'Cập Nhập Thành Công',
-                    'success',
-                  ); //Warning//Info//Error
-                  this.showDialogFlg = false;
-                  this.getData();
-                  this.loading = false;
-                },
-                error => {
-                  this.showNotice('Lỗi', error, 'Error'); //Warning//Info//Error
-                  this.loading = false;
-                },
-              );
-          }
-        } else {
-          console.log('error submit!!');
-          return false;
-        }
-      });
-    },
 
     metHandlerAddNew() {
-      this.formData = {
-        name: '',
-        price: '',
-        short_description: '',
-      };
-      this.isNew = true;
-      this.showDialogFlg = true;
+      this.$router.push('/admin/product');
+
+      // this.formData = {
+      //   name: '',
+      //   price: '',
+      //   short_description: '',
+      // };
+      // this.isNew = true;
+      // this.showDialogFlg = true;
     },
 
     showNotice(title, content, type) {
