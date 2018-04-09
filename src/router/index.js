@@ -36,7 +36,7 @@ const router = new Router({
     { path: '/item/:prodId', name: 'Item', component: Item, meta: { requiresAuth: false, title: 'Product' } },
 
 
-    
+
     {
       path: '/login',
       name: 'Login',
@@ -44,14 +44,6 @@ const router = new Router({
       meta: { requiresAuth: false, title: 'Login' }
     },
     {
-      path: '/admin/emp',
-      name: 'Employees',
-      component: Employees,
-      meta: {
-        requiresAuth: true,
-        title: 'Employees'
-      }
-    },{
       path: '/admin/products',
       name: 'Products',
       component: Products,
@@ -79,18 +71,17 @@ const router = new Router({
         requiresAuth: true,
         title: 'Product'
       }
-    },
-    
-    {
-      path: '/admin/upload',
-      name: 'Upload',
-      component: Upload,
-      meta: {
-        requiresAuth: true,
-        title: 'Upload'
-      }
     }
-    
+    // ,{
+    //   path: '/admin/upload',
+    //   name: 'Upload',
+    //   component: Upload,
+    //   meta: {
+    //     requiresAuth: true,
+    //     title: 'Upload'
+    //   }
+    // }
+
   ]
 });
 

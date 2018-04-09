@@ -8,7 +8,7 @@ div(v-loading.fullscreen.lock='loading')
     el-row
       el-table(ref='singleTable', :data='lstDataDisplay', border='', style='width: 100%',  :default-sort = "{prop: 'createdAt', order: 'ascending'}")
         el-table-column(type='index', width='50')
-        el-table-column(property='name', label='Tên', width='200', :sortable="true")
+        el-table-column(property='name', label='Tên', width='600', :sortable="true")
         el-table-column(property='price', label='Giá', width='200', :sortable="true")
         //el-table-column(property='short_description', label='Mô Tả', width='200', :sortable="true")
         el-table-column(label='action', width='150')
@@ -56,6 +56,7 @@ export default {
         name: '',
         price: '',
         short_description: '',
+        long_description: '',
       },
 
       rules: {
@@ -142,6 +143,7 @@ export default {
                 name: item.name,
                 price: item.price,
                 short_description: item.short_description,
+                long_description: item.long_description,
               };
 
               this.lstDataDisplay.push(data);
@@ -157,15 +159,7 @@ export default {
     },
   },
   created() {
-    //  this.loading = true;
-    //   this.$bindAsArray('lstDataBinding', this.$db.ref('users') , null, ()=>{
-    //     console.log('Nhân Viên >> Finished Get Data from DB')
-    //     this.updateDisplayList()
-    //     this.loading = false;
-    //     });
-    //this.getDataFromAPI();
     this.getData();
-    toastr.error('mnpasdfadasd');
   },
 };
 </script>

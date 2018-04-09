@@ -18,47 +18,48 @@
             .card.card-plain
               .card-header
                 | Mô Tả Sản Phẩm
-              .card-body
+              .card-body.custom-ql-viewer
                 .ql-editor(v-html='productVO.short_description')
                 
       .features-4
         .container
           .row
-            .col-md-8.ml-auto.mr-auto.text-center
-              h2.title Hướng Dẫn Sử Dụng Và Công Dụng Của Sản Phẩm
-              h4.description
-                | Havenly is a convenient, personal and affordable way to redecorate your home room by room. Collaborate with our professional interior designers on our online platform.
+            .ql-editor(v-html='productVO.long_description')
+            //- .col-md-8.ml-auto.mr-auto.text-center
+            //-   h2.title Hướng Dẫn Sử Dụng Và Công Dụng Của Sản Phẩm
+            //-   h4.description
+            //-     | Havenly is a convenient, personal and affordable way to redecorate your home room by room. Collaborate with our professional interior designers on our online platform.
           .row
-            .col-md-4
-              .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg24.jpg')")
-                .info
-                  .icon.icon-white
-                    i.now-ui-icons.shopping_delivery-fast
-                  .description
-                    h4.info-title 1 Vài Thứ
-                    p
-                      | Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.
-                    a.ml-3(href='#pablo') Find more...
             .col-md-4
               .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg28.jpg')")
                 .info
                   .icon.icon-white
-                    i.now-ui-icons.business_badge
+                    i.now-ui-icons.emoticons_satisfied
                   .description
-                    h4.info-title Giới Thiệu Thêm
+                    h4.info-title Lựa Chọn
                     p
-                      | Divide details about your product or agency work into parts. Write a few lines about each one. Very good refund policy just for you.
-                    a(href='#pablo') Find more...
+                      | Hãy xem qua nhũng sẩm phẩm của chúng tôi trên website này, chúng tôi đã cung cấp toàn bộ thông tin chi tiết cho mỗi sản phẩm
+                    
+            .col-md-4
+              .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg24.jpg')")
+                .info
+                  .icon.icon-white
+                    i.now-ui-icons.tech_mobile
+                  .description
+                    h4.info-title Liên Hệ
+                    p
+                      | Qua số điện thoại (097) 123456878 hoặc chat trực tiếp với chúng tôi qua messenger ngay phía góc phải, chúng tôi sẽ trả lời bạn ngay
+                    
             .col-md-4
               .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg25.jpg')")
                 .info
-                  .icon
-                    i.now-ui-icons.ui-2_favourite-28
+                  .icon.icon-white
+                    i.now-ui-icons.shopping_delivery-fast
                   .description
-                    h4.info-title Ở Đây
+                    h4.info-title Vận Chuyễn
                     p
-                      | Share a floor plan, and we'll create a visualization of your room. A paragraph describing a feature will be enough. This is a popular item for you.
-                    a.ml-3(href='#pablo') Find more...
+                      | Sau khi hoàn tất đơn hàng qua điện thoại, đội ngũ nhân viên giao hàng của chúng tôi sẽ giao hàng trong vòng 24h. kể cả ngày lễ và CN
+                    
   app-footer
 
 
@@ -113,6 +114,7 @@ export default {
             name: datas.name,
             price: datas.price,
             short_description: datas.short_description,
+            long_description: datas.long_description,
             imageList: datas.images,
           };
         });
@@ -145,6 +147,12 @@ export default {
     transform: translateX(-50%) translateY(-50%);
     /* max-width: 100%; */
     max-height: 100%;
+  }
+}
+
+.custom-ql-viewer {
+  > .ql-editor {
+    padding: 0px;
   }
 }
 </style>

@@ -8,8 +8,8 @@
   .sidebar-wrapper
     ul.nav
       item(to='/admin/emp', title='Nhân Viên', icon="users_single-02")
-      item(to='/admin/products', title='Sản Phẩm', icon="design_app")
-      item(to='/admin/upload', title='Sản Phẩm', icon="design_app")
+      //item(to='/admin/products', title='Sản Phẩm', icon="design_app")
+      //item(to='/admin/upload', title='Sản Phẩm', icon="design_app")
 </template>
 
 <script>

@@ -1,54 +1,66 @@
 <template lang='pug'>
 div(v-loading.fullscreen.lock='loading')
-  b-card
-    el-form(:model='formData', label-width='150px', :rules="rules",ref="ruleForm")
-      el-form-item(label='Tên Sản Phẩm',prop="name")
-        el-input( v-model='formData.name')
-      el-form-item(label='Giá')
-        el-input( v-model='formData.price')
-      //el-form-item(label='Mô Tả', prop="short_description")  
-        //el-input(type='textarea', :rows='2', placeholder='Please input', v-model='formData.short_description')
-        
-  b-card
-    el-row
-      quill-editor(ref='myTextEditor', 
-                    v-model='formData.short_description', 
-                    :options='editorOption', 
-                    @blur='onEditorBlur($event)', 
-                    @focus='onEditorFocus($event)', 
-                    @ready='onEditorReady($event)')
-        #toolbar(slot='toolbar')
-          button.ql-bold Bold
-          button.ql-italic Italic
-          button.ql-underline Underline
-          button.ql-strike Strike
-          button.ql-list(value='ordered')
-          button.ql-list(value='bullet')
-          select.ql-header
-            option(value='1')
-            option(value='2')
-            option(value='3')
-            option(value='4')
-            option(value='5')
-            option(value='6')
-            option(selected='')
-          select.ql-color                
-          select.ql-background                
-          select.ql-align   
-          button.ql-video Video
-          button(type='button', @click='customButtonClick')
-            i.el-icon-upload
-          input.custom-input(type='file', @change='customButtonImage_UPLOAD', style='display: none !important;')
-          button.ql-clean Clean
+  .card
+    .card-header
+      h6.card-title Thông Tin Sản Phẩm
+    .card-body
+      el-form(:model='formData', label-width='150px', :rules="rules",ref="ruleForm")
+        el-form-item(label='Tên Sản Phẩm',prop="name")
+          el-input( v-model='formData.name')
+        el-form-item(label='Giá')
+          el-input( v-model='formData.price', @keyup.native='formatPrice($event)')
+        el-form-item(label='Mô Tả Ngấn')
+          quill-editor(ref='shortDescp'
+                      v-model='formData.short_description', 
+                      :options='editorOptionShortDesc')
+            #toolbarDesc(slot='toolbar')
+              button.ql-bold Bold
+              button.ql-italic Italic
+              button.ql-underline Underline
+              button.ql-strike Strike
+              button.ql-list(value='ordered')
+              button.ql-list(value='bullet')
+              
 
-  b-card
-    el-row
-      el-upload.upload-demo(action='https://jsonplaceholder.typicode.com/posts/', 
-                                    ref="upload",  
-                                    :auto-upload="false", 
-                                    :multiple="true",
-                                    :on-change='handleUploadChange')
-            el-button(size='small', type='primary', :loading='loadingButton') Upload File
+        quill-editor(ref='myTextEditor', placeholder='acb'
+                      v-model='formData.long_description', 
+                      :options='editorOption', 
+                      @blur='onEditorBlur($event)', 
+                      @focus='onEditorFocus($event)', 
+                      @ready='onEditorReady($event)')
+          #toolbar(slot='toolbar')
+            button.ql-bold Bold
+            button.ql-italic Italic
+            button.ql-underline Underline
+            button.ql-strike Strike
+            button.ql-list(value='ordered')
+            button.ql-list(value='bullet')
+            select.ql-header
+              option(value='1')
+              option(value='2')
+              option(value='3')
+              option(value='4')
+              option(value='5')
+              option(value='6')
+              option(selected='')
+            select.ql-color                
+            select.ql-background                
+            select.ql-align   
+            button.ql-video Video
+            button(type='button', @click='customButtonClick')
+              i.el-icon-upload
+            input.custom-input(type='file', @change='customButtonImage_UPLOAD', style='display: none !important;')
+            button.ql-clean Clean
+
+  .card
+    .card-header
+      h6.card-title Hình Sản Phẩm
+    .card-body
+      el-upload.upload-demo.custom-upload(ref='upload', action='https://jsonplaceholder.typicode.com/posts/', :auto-upload='false', :multiple='true')
+        el-button(slot='trigger', size='small', type='primary') Thêm Hình
+        el-button(style='margin-left: 10px;', size='small', type='success', @click='submitUpload') Upload
+        //.el-upload__tip(slot='tip') jpg/png files with a size less than 500kb
+
       el-row      
         el-col(:span='8', v-for='(o, index) in imageList', :key='index')
             el-card(:body-style="{ padding: '0px' }")
@@ -102,8 +114,9 @@ export default {
       formData: {
         key: '',
         name: '',
-        price: '',
+        price: '0',
         short_description: '',
+        long_description: '',
       },
 
       rules: {
@@ -116,11 +129,16 @@ export default {
         ],
       },
 
-
       //Quill Editor
-      editor: {},
-      length,
 
+      editorOptionShortDesc: {
+        modules: {
+          toolbar: '#toolbarDesc',
+        },
+      },
+
+      editor: {},
+      length: '',
       content: '',
       editorOption: {
         modules: {
@@ -131,6 +149,38 @@ export default {
   },
 
   methods: {
+    formatPrice(event) {
+      event.target.value = this.formatCurrency(event.target.value);
+    },
+
+    formatCurrency(inputValue) {
+      if (inputValue) {
+        return parseFloat(inputValue.replace(/\./g, ''))
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      }
+      return '0';
+    },
+
+    removeImg(index, item) {
+      this.loading = true;
+      // Create a reference to the file to delete
+      let desertRef = this.$storage.ref(item.fullPath);
+
+      // Delete the file
+      desertRef
+        .delete()
+        .then(() => {
+          this.imageList.splice(index, 1);
+          this.loading = false;
+        })
+        .catch(error => {
+          console.log(error);
+          this.imageList.splice(index, 1);          
+          this.loading = false;
+        });
+    },
+
     showNotice(title, content, type) {
       this.$notify({
         title: title,
@@ -159,16 +209,21 @@ export default {
             name: datas.name,
             price: datas.price,
             short_description: datas.short_description,
+            long_description: datas.long_description
           };
         });
     },
 
-    handleUploadChange() {
+    async submitUpload() {
       if (this.$refs.upload.uploadFiles) {
-        this.loadingButton = true;
+        this.loading = true;
         let files = this.$refs.upload.uploadFiles;
-        console.log(files);
+        //console.log(files);
         if (files) {
+          let promises = [];
+
+          console.log('files >>>>>>>>>>', files);
+
           files.forEach(file => {
             const ext = file.name.slice(file.name.lastIndexOf('.'));
             const fileName = file.name.slice(0, file.name.lastIndexOf('.'));
@@ -176,20 +231,36 @@ export default {
               .toString(36)
               .substring(2, 10)
               .toUpperCase();
-            this.$storage
-              .ref('images/' + fileName + extraFileName + '.' + ext)
-              .put(file.raw)
-              .then(snapshot => {
-                let value = {
-                  name: snapshot.metadata.name,
-                  url: snapshot.downloadURL,
-                  time: snapshot.metadata.timeCreated,
-                  fullPath: snapshot.metadata.fullPath,
-                };
-                this.imageList.push(value);
-                this.loadingButton = false;
-                this.$refs.upload.clearFiles();
-              });
+
+            promises.push(
+              this.$storage
+                .ref('images/' + fileName + extraFileName + '.' + ext)
+                .put(file.raw)
+                .then(snapshot => {
+                  //this.imageList.push(value);
+                  //this.loading = false;
+
+                  return {
+                    name: snapshot.metadata.name,
+                    url: snapshot.downloadURL,
+                    time: snapshot.metadata.timeCreated,
+                    fullPath: snapshot.metadata.fullPath,
+                  };
+                }),
+            );
+          });
+
+          Promise.all(promises).then(imageInfo => {
+            // console.log('imageList >>>>>>>>>>', this.imageList);
+            // console.log('imageInfo >>>>>>>>>>', imageInfo);
+
+            imageInfo.forEach(element => {
+              this.imageList.push(element);
+            });
+            console.log('imageList >>>>>>>>>>', this.imageList);
+
+            this.loading = false;
+            this.$refs.upload.clearFiles();
           });
         }
       }
@@ -213,6 +284,9 @@ export default {
                 price: this.formData.price ? this.formData.price : '',
                 short_description: this.formData.short_description
                   ? this.formData.short_description
+                  : '',
+                long_description: this.formData.long_description
+                  ? this.formData.long_description
                   : '',
                 images: this.imageList,
                 createdAt: moment().format('DD/MM/YYYY HH:mm:ss'),
@@ -240,6 +314,9 @@ export default {
               short_description: this.formData.short_description
                 ? this.formData.short_description
                 : '',
+              long_description: this.formData.long_description
+                  ? this.formData.long_description
+                  : '',
               images: this.imageList,
               createdAt: new Date().toString(),
             };
@@ -273,40 +350,35 @@ export default {
       });
     },
 
-
-
     //Qill Editor
     onEditorBlur(editor) {
       this.editor = editor;
-      console.log('editor blur!', editor);
+      //console.log('editor blur!', editor);
     },
     onEditorFocus(editor) {
       this.editor = editor;
-
-      console.log('editor focus!', editor);
+      //console.log('editor focus!', editor);
     },
     onEditorReady(editor) {
       this.editor = editor;
-
-      console.log('editor ready!', editor);
+      //console.log('editor ready!', editor);
     },
 
     customButtonClick() {
       let range;
       if (this.editor.getSelection() != null) {
         range = this.editor.getSelection();
-        this.length = range.index; //content获取到焦点，计算光标所在位置，目的为了在该位置插入img
+        this.length = range.index;
       } else {
-        this.length = this.content.length; //content没有获取到焦点时候 目的是为了在content末尾插入img
+        this.length = this.formData.long_description.length;
       }
-      this.$el.querySelector('.custom-input').click(); //打开file 选择图片
+      this.$el.querySelector('.custom-input').click();
     },
 
     customButtonImage_UPLOAD(event) {
       this.loading = true;
 
       let file = event.target.files[0];
-      console.log(event.target.files);
 
       let fileNm = file.name;
       let fileTp = file.type;
@@ -338,20 +410,12 @@ export default {
     },
     //Qill Editor
   },
+
   created() {
-    //  this.loading = true;
-    //   this.$bindAsArray('lstDataBinding', this.$db.ref('users') , null, ()=>{
-    //     console.log('Nhân Viên >> Finished Get Data from DB')
-    //     this.updateDisplayList()
-    //     this.loading = false;
-    //     });
-    //this.getDataFromAPI();
     const { prodId } = this.$route.params;
-    //this.getBranchInfo(branchId);
     if (prodId) this.formData.key = prodId;
 
     this.getData(prodId);
-    toastr.error(prodId);
   },
 };
 </script>
@@ -410,5 +474,9 @@ export default {
     max-width: 100%;
     max-height: 100%;
   }
+}
+
+.custom-upload {
+  padding: 10px;
 }
 </style>
