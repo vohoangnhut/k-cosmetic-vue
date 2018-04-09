@@ -45,11 +45,11 @@ const router = new Router({
     },
     {
       path: '/admin/products',
-      name: 'Products',
+      name: 'Sản Phẩm',
       component: Products,
       meta: {
         requiresAuth: true,
-        title: 'Employees'
+        title: 'Sản Phẩm'
       }
     },
     {

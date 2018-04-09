@@ -1,14 +1,14 @@
 <template lang="pug">
 .sidebar(data-color='orange')
   .logo
-    a.simple-text.logo-mini(href='http://credit-score.com')
-      | HK
-    a.simple-text.logo-normal(href='http://credit-score.com')
+    a.simple-text.logo-mini
+      
+    a.simple-text.logo-normal(href='http://google.com')
       | Kim Comestic
   .sidebar-wrapper
     ul.nav
-      item(to='/admin/emp', title='Nhân Viên', icon="users_single-02")
-      //item(to='/admin/products', title='Sản Phẩm', icon="design_app")
+      //item(to='/admin/products', title='Nhân Viên', icon="users_single-02")
+      item(to='/admin/products', title='Sản Phẩm', icon="design_app")
       //item(to='/admin/upload', title='Sản Phẩm', icon="design_app")
 </template>
 

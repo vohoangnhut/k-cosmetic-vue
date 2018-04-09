@@ -7,9 +7,9 @@ div(v-loading.fullscreen.lock='loading')
       el-form(:model='formData', label-width='150px', :rules="rules",ref="ruleForm")
         el-form-item(label='Tên Sản Phẩm',prop="name")
           el-input( v-model='formData.name')
-        el-form-item(label='Giá')
+        el-form-item(label='Giá', prop="price")
           el-input( v-model='formData.price', @keyup.native='formatPrice($event)')
-        el-form-item(label='Mô Tả Ngấn')
+        el-form-item(label='Mô Tả Ngấn', prop="short_description")
           quill-editor(ref='shortDescp'
                       v-model='formData.short_description', 
                       :options='editorOptionShortDesc')
@@ -56,9 +56,10 @@ div(v-loading.fullscreen.lock='loading')
     .card-header
       h6.card-title Hình Sản Phẩm
     .card-body
-      el-upload.upload-demo.custom-upload(ref='upload', action='https://jsonplaceholder.typicode.com/posts/', :auto-upload='false', :multiple='true')
+      el-upload.upload-demo.custom-upload(ref='upload', :http-request='httpRequestUpload', action='https://jsonplaceholder.typicode.com/posts/'
+                                  :auto-upload='true', :show-file-list='false', :multiple='true')
         el-button(slot='trigger', size='small', type='primary') Thêm Hình
-        el-button(style='margin-left: 10px;', size='small', type='success', @click='submitUpload') Upload
+        //el-button(style='margin-left: 10px;', size='small', type='success', @click='submitUpload') Upload
         //.el-upload__tip(slot='tip') jpg/png files with a size less than 500kb
 
       el-row      
@@ -111,6 +112,7 @@ export default {
       loading: false,
       loadingButton: false,
       imageList: [],
+      imageRemovedList: [],
       formData: {
         key: '',
         name: '',
@@ -123,7 +125,21 @@ export default {
         name: [
           {
             required: true,
-            message: 'Vui lòng nhập tên SP',
+            message: 'Vui lòng nhập tên sản phẩm',
+            trigger: 'blur',
+          },
+        ],
+        price: [
+          {
+            required: true,
+            message: 'Vui lòng nhập giá',
+            trigger: 'blur',
+          },
+        ],
+        short_description: [
+          {
+            required: true,
+            message: 'Vui lòng nhập mô tả',
             trigger: 'blur',
           },
         ],
@@ -149,6 +165,37 @@ export default {
   },
 
   methods: {
+    httpRequestUpload(data) {
+      this.loading = true;
+      let file = data.file;
+      const ext = file.name.slice(file.name.lastIndexOf('.'));
+      const fileName = file.name.slice(0, file.name.lastIndexOf('.'));
+      const extraFileName = Math.random()
+        .toString(36)
+        .substring(2, 10)
+        .toUpperCase();
+
+      this.$storage
+        .ref('images/' + fileName + extraFileName + '.' + ext)
+        .put(file)
+        .then(snapshot => {
+          //this.imageList.push(value);
+          //this.loading = false;
+
+          let item = {
+            name: snapshot.metadata.name,
+            url: snapshot.downloadURL,
+            time: snapshot.metadata.timeCreated,
+            fullPath: snapshot.metadata.fullPath,
+          };
+
+          if (!this.imageList) this.imageList = [];
+
+          this.imageList.push(item);
+          this.$refs.upload.clearFiles();
+          this.loading = false;
+        });
+    },
     formatPrice(event) {
       event.target.value = this.formatCurrency(event.target.value);
     },
@@ -163,22 +210,8 @@ export default {
     },
 
     removeImg(index, item) {
-      this.loading = true;
-      // Create a reference to the file to delete
-      let desertRef = this.$storage.ref(item.fullPath);
-
-      // Delete the file
-      desertRef
-        .delete()
-        .then(() => {
-          this.imageList.splice(index, 1);
-          this.loading = false;
-        })
-        .catch(error => {
-          console.log(error);
-          this.imageList.splice(index, 1);          
-          this.loading = false;
-        });
+      this.imageRemovedList.push(item.fullPath);
+      this.imageList.splice(index, 1);
     },
 
     showNotice(title, content, type) {
@@ -186,12 +219,8 @@ export default {
         title: title,
         message: content,
         type: type,
-        duration: 1000,
+        duration: 1500,
       });
-    },
-
-    metHandlerCancel() {
-      this.showDialogFlg = false;
     },
 
     getData(prodId) {
@@ -209,7 +238,7 @@ export default {
             name: datas.name,
             price: datas.price,
             short_description: datas.short_description,
-            long_description: datas.long_description
+            long_description: datas.long_description,
           };
         });
     },
@@ -261,6 +290,8 @@ export default {
 
             this.loading = false;
             this.$refs.upload.clearFiles();
+
+            this.handleSave();
           });
         }
       }
@@ -273,6 +304,11 @@ export default {
     handleSave() {
       this.$refs['ruleForm'].validate(valid => {
         if (valid) {
+          if (!this.imageList || this.imageList.length == 0) {
+            this.showNotice('Thông Báo', 'Vui Lòng Thêm Ảnh Sản Phẩm', 'error'); //Warning//Info//error
+            return;
+          }
+
           if (!this.formData.key) {
             this.loading = true;
             let key = code_generator(10);
@@ -294,13 +330,11 @@ export default {
               .then(
                 data => {
                   this.showNotice('Thông Báo', 'Lưu Thành Công', 'success');
-                  this.showDialogFlg = false;
                   this.getData();
-                  //this.getDataFromAPI();
                   this.loading = false;
                 },
                 error => {
-                  this.showNotice('Lỗi', error, 'Error');
+                  this.showNotice('Lỗi', error, 'error');
                   this.loading = false;
                 },
               );
@@ -315,8 +349,8 @@ export default {
                 ? this.formData.short_description
                 : '',
               long_description: this.formData.long_description
-                  ? this.formData.long_description
-                  : '',
+                ? this.formData.long_description
+                : '',
               images: this.imageList,
               createdAt: new Date().toString(),
             };
@@ -328,23 +362,40 @@ export default {
               .update(updates)
               .then(
                 data => {
+                  //remove image if there some removed images
+                  if (
+                    this.imageRemovedList &&
+                    this.imageRemovedList.length > 0
+                  ) {
+                    console.log(this.imageRemovedList);
+                    this.imageRemovedList.forEach(fullPath => {
+                      console.log(fullPath);
+                      this.$storage.ref(fullPath).delete();
+                    });
+
+                    this.imageRemovedList = [];
+                  }
+
                   this.showNotice(
                     'Thông Báo',
                     'Cập Nhập Thành Công',
                     'success',
-                  ); //Warning//Info//Error
-                  this.showDialogFlg = false;
+                  ); //Warning//Info//
                   this.getData();
                   this.loading = false;
                 },
                 error => {
-                  this.showNotice('Lỗi', error, 'Error'); //Warning//Info//Error
+                  this.showNotice('Lỗi', error, 'error'); //Warning//Info//error
                   this.loading = false;
                 },
               );
           }
         } else {
-          console.log('error submit!!');
+          this.showNotice(
+            'Thông Báo',
+            'Vui Lòng Nhập Các Trường Bất Buộc',
+            'error',
+          ); //Warning//Info//error
           return false;
         }
       });
