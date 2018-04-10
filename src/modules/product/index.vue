@@ -149,9 +149,9 @@
             //-       p.card-description
             //-         | 24,000,000 VNĐ
             
-          .row
-            .ml-auto.mr-auto
-                button.btn.btn-primary.btn-round(rel='tooltip') Load more...
+          //- .row
+          //-   .ml-auto.mr-auto
+          //-       button.btn.btn-primary.btn-round(rel='tooltip', @click='getMore') Load more...
 
   app-footer
 </template>
@@ -168,6 +168,8 @@ export default {
     return {
       lstProducts: [],
       exmapleImageProduct : 'assets/img/wooyoungmi.jpg',
+
+      theLastItem: {},
     };
   },
 
@@ -194,27 +196,72 @@ export default {
 
     getData() {
       this.lstProducts = [];
+      let query = this.$db.ref('products').orderByChild('createdAt')
+      //.limitToFirst(4);
+      //.once('value')
+      query.on('child_added', snapshot => {
+        let item = snapshot.val();
+        let valueItem = {
+          key: item.key,
+          name: item.name,
+          price: item.price,
+          short_description: item.short_description,
+          long_description: item.long_description,
+          images: item.images,
+        };
+
+        this.lstProducts.push(valueItem);
+
+        this.theLastItem = item;
+      });
+      
+      // this.lstProducts = [];
+      // this.$db
+      //   .ref('products')
+      //   .once('value')
+      //   .then(snapshot => {
+      //     let datas = snapshot.val();
+
+      //     if (datas) {
+      //       let arrays = Object.values(datas);
+      //       arrays.forEach(item => {
+      //         let data = {
+      //           key: item.key,
+      //           name: item.name,
+      //           price: item.price,
+      //           short_description: item.short_description,
+      //           images: item.images,
+      //         };
+
+      //         this.lstProducts.push(data);
+      //       });
+      //     }
+      //   });
+    },
+
+    getMore() {
+      if (!this.theLastItem) return;
       this.$db
         .ref('products')
-        .once('value')
-        .then(snapshot => {
-          let datas = snapshot.val();
+        .orderByChild('createdAt')
+        .startAt(this.theLastItem.createdAt)
+        .limitToFirst(4)
+        .on('child_added', snapshot => {
+          let item = snapshot.val();
+          let valueItem = {
+            key: item.key,
+            name: item.name,
+            price: item.price,
+            short_description: item.short_description,
+            long_description: item.long_description,
+            images: item.images,
+          };
+          if (this.theLastItem.key != item.key)
+            this.lstProducts.push(valueItem);
 
-          if (datas) {
-            let arrays = Object.values(datas);
-            arrays.forEach(item => {
-              let data = {
-                key: item.key,
-                name: item.name,
-                price: item.price,
-                short_description: item.short_description,
-                images: item.images,
-              };
-
-              this.lstProducts.push(data);
-            });
-          }
+          this.theLastItem = item;
         });
+
     },
   },
 

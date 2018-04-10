@@ -2,6 +2,10 @@
 div(v-loading.fullscreen.lock='loading')
   b-card
     el-form.demo-form-inline( inline=true,  @submit.native.prevent="onTextSearchEnter")
+      //- el-form-item
+      //-   el-input(placeholder='Name ...', v-model='formSearchData.txtSearch', @keyup.enter.native='onTextSearchEnter($event)')  
+      //- el-form-item
+      //-   el-button(type='primary', icon='search', @click='metHandlerSearch') Refesh
       el-form-item
         el-button(type='success', icon='plus', @click='metHandlerAddNew') Thêm Mới
     br
@@ -17,6 +21,8 @@ div(v-loading.fullscreen.lock='loading')
               el-button(size='small', @click='handleEdit(scope.$index, scope.row)', icon='el-icon-edit')
             el-tooltip.item(effect='dark', content='Delete', placement='right-start')
               el-button(size='small', type='danger', @click='handleDelete(scope.$index, scope.row)', icon='el-icon-delete')
+      //el-button(type='info', size='small', icon='plus', @click='handlerLoadMore', style='margin-top: 10px;') Load More
+      
 
 </template>
 
@@ -29,51 +35,38 @@ import moment from 'moment';
 import axios from 'axios';
 
 export default {
-  firebase() {
-    return {
-      listEmployees: this.$db.ref('users'),
-    };
-  },
-
   computed: {
-    query() {
-      return {
-        size: this.pageSize,
-        skip: this.pageSize * (this.currentPage - 1),
-      };
-    },
+    // query() {
+    //   return {
+    //     size: this.pageSize,
+    //     skip: this.pageSize * (this.currentPage - 1),
+    //   };
+    // },
   },
 
   data() {
     return {
+      formSearchData: {
+        txtSearch: '',
+      },
+
       loading: false,
       lstDataDisplay: [],
-      lstDataBinding: [],
-      showDialogFlg: false,
 
-      formData: {
-        key: '',
-        name: '',
-        price: '',
-        short_description: '',
-        long_description: '',
-      },
-
-      rules: {
-        name: [
-          {
-            required: true,
-            message: 'Vui lòng nhập Mã NV',
-            trigger: 'blur',
-          },
-        ],
-      },
-
-      isNew: false,
+      theLastItem: {},
     };
   },
 
   methods: {
+    metHandlerSearch() {
+      this.getData();
+    },
+
+    onTextSearchEnter(event) {
+      event.preventDefault();
+      this.getData();
+    },
+
     handleEdit(index, row) {
       const key = row.key ? row.key : '';
       this.$router.push(`/admin/product/${key}`);
@@ -90,28 +83,26 @@ export default {
 
           ref.remove().then(
             data => {
+              let imageList = row['images'];
+              if (imageList && imageList.length > 0) {
+                imageList.forEach(image => {
+                  this.$storage.ref(image.fullPath).delete();
+                });
+              }
+
               this.showNotice('Thông Báo', 'Xoá Thành Công', 'success'); //Warning//Info//Error
               this.getData();
             },
             error => {
-              this.showNotice('Lỗi', error, 'Error'); //Warning//Info//Error
+              this.showNotice('Lỗi', error, 'error'); //Warning//Info//Error
             },
           );
         })
         .catch(() => {});
     },
 
-
     metHandlerAddNew() {
       this.$router.push('/admin/product');
-
-      // this.formData = {
-      //   name: '',
-      //   price: '',
-      //   short_description: '',
-      // };
-      // this.isNew = true;
-      // this.showDialogFlg = true;
     },
 
     showNotice(title, content, type) {
@@ -123,38 +114,58 @@ export default {
       });
     },
 
-    metHandlerCancel() {
-      this.showDialogFlg = false;
-    },
-
     getData() {
       this.lstDataDisplay = [];
+
+      let query = this.$db
+          .ref('products')
+          .orderByChild('createdAt')
+          //.limitToFirst(100);
+      // else
+      //   query = this.$db
+      //     .ref('products')
+      //     .orderByChild('name')
+      //     .startAt(this.formSearchData.txtSearch)
+      //     .endAt(this.formSearchData.txtSearch+ '\uf8ff')
+      //     .limitToFirst(3);
+
+      query.on('child_added', snapshot => {
+        let item = snapshot.val();
+        let valueItem = {
+          key: item.key,
+          name: item.name,
+          price: item.price,
+          short_description: item.short_description,
+          long_description: item.long_description,
+          images: item.images,
+        };
+        this.lstDataDisplay.push(valueItem);
+
+        this.theLastItem = item;
+      });
+    },
+
+    handlerLoadMore() {
+      if (!this.theLastItem) return;
       this.$db
         .ref('products')
-        .once('value')
-        .then( snapshot => {
-          let datas = snapshot.val();
-          
-          if (datas) {
-            let arrays = Object.values(datas)
-            arrays.forEach(item => {
-              let data = {
-                key: item.key,
-                name: item.name,
-                price: item.price,
-                short_description: item.short_description,
-                long_description: item.long_description,
-              };
+        .orderByChild('createdAt')
+        .startAt(this.theLastItem.createdAt)
+        .limitToFirst(4)
+        .on('child_added', snapshot => {
+          let item = snapshot.val();
+          let valueItem = {
+            key: item.key,
+            name: item.name,
+            price: item.price,
+            short_description: item.short_description,
+            long_description: item.long_description,
+            images: item.images,
+          };
+          if (this.theLastItem.key != item.key)
+            this.lstDataDisplay.push(valueItem);
 
-              this.lstDataDisplay.push(data);
-            });
-          }
-
-          //let username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-
-          // if(snapshot.val()){
-
-          // }
+          this.theLastItem = item;
         });
     },
   },

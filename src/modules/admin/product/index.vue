@@ -9,7 +9,7 @@ div(v-loading.fullscreen.lock='loading')
           el-input( v-model='formData.name')
         el-form-item(label='Giá', prop="price")
           el-input( v-model='formData.price', @keyup.native='formatPrice($event)')
-        el-form-item(label='Mô Tả Ngấn', prop="short_description")
+        el-form-item(label='Mô Tả Ngắn', prop="short_description")
           quill-editor(ref='shortDescp'
                       v-model='formData.short_description', 
                       :options='editorOptionShortDesc')
@@ -59,9 +59,7 @@ div(v-loading.fullscreen.lock='loading')
       el-upload.upload-demo.custom-upload(ref='upload', :http-request='httpRequestUpload', action='https://jsonplaceholder.typicode.com/posts/'
                                   :auto-upload='true', :show-file-list='false', :multiple='true')
         el-button(slot='trigger', size='small', type='primary') Thêm Hình
-        //el-button(style='margin-left: 10px;', size='small', type='success', @click='submitUpload') Upload
-        //.el-upload__tip(slot='tip') jpg/png files with a size less than 500kb
-
+  
       el-row      
         el-col(:span='8', v-for='(o, index) in imageList', :key='index')
             el-card(:body-style="{ padding: '0px' }")
@@ -75,6 +73,7 @@ div(v-loading.fullscreen.lock='loading')
   b-card
     el-row
       el-button(type='success', icon='plus', @click='handleSave') Lưu
+      el-button(type='info', icon='plus', @click='handleCancel') Hủy
       
 
 </template>
@@ -119,6 +118,8 @@ export default {
         price: '0',
         short_description: '',
         long_description: '',
+        createdAt: '',
+        updatedAt: '',
       },
 
       rules: {
@@ -196,8 +197,10 @@ export default {
           this.loading = false;
         });
     },
+
     formatPrice(event) {
-      event.target.value = this.formatCurrency(event.target.value);
+      let value = event.target.value;
+      this.formData.price = this.formatCurrency(value);
     },
 
     formatCurrency(inputValue) {
@@ -230,71 +233,19 @@ export default {
         .ref('/products/' + prodId)
         .once('value')
         .then(snapshot => {
-          let datas = snapshot.val();
+          let data = snapshot.val();
 
-          this.imageList = datas.images;
+          this.imageList = data.images;
           this.formData = {
-            key: datas.key,
-            name: datas.name,
-            price: datas.price,
-            short_description: datas.short_description,
-            long_description: datas.long_description,
+            key: data.key,
+            name: data.name,
+            price: data.price,
+            short_description: data.short_description,
+            long_description: data.long_description,
+            updatedAt: data.updatedAt,
+            createdAt: data.createdAt,
           };
         });
-    },
-
-    async submitUpload() {
-      if (this.$refs.upload.uploadFiles) {
-        this.loading = true;
-        let files = this.$refs.upload.uploadFiles;
-        //console.log(files);
-        if (files) {
-          let promises = [];
-
-          console.log('files >>>>>>>>>>', files);
-
-          files.forEach(file => {
-            const ext = file.name.slice(file.name.lastIndexOf('.'));
-            const fileName = file.name.slice(0, file.name.lastIndexOf('.'));
-            const extraFileName = Math.random()
-              .toString(36)
-              .substring(2, 10)
-              .toUpperCase();
-
-            promises.push(
-              this.$storage
-                .ref('images/' + fileName + extraFileName + '.' + ext)
-                .put(file.raw)
-                .then(snapshot => {
-                  //this.imageList.push(value);
-                  //this.loading = false;
-
-                  return {
-                    name: snapshot.metadata.name,
-                    url: snapshot.downloadURL,
-                    time: snapshot.metadata.timeCreated,
-                    fullPath: snapshot.metadata.fullPath,
-                  };
-                }),
-            );
-          });
-
-          Promise.all(promises).then(imageInfo => {
-            // console.log('imageList >>>>>>>>>>', this.imageList);
-            // console.log('imageInfo >>>>>>>>>>', imageInfo);
-
-            imageInfo.forEach(element => {
-              this.imageList.push(element);
-            });
-            console.log('imageList >>>>>>>>>>', this.imageList);
-
-            this.loading = false;
-            this.$refs.upload.clearFiles();
-
-            this.handleSave();
-          });
-        }
-      }
     },
 
     formatTime(time) {
@@ -325,12 +276,13 @@ export default {
                   ? this.formData.long_description
                   : '',
                 images: this.imageList,
-                createdAt: moment().format('DD/MM/YYYY HH:mm:ss'),
+                createdAt: moment().format('YYYYMMDDHHmmss'),
+                updatedAt: moment().format('YYYYMMDDHHmmss'),
               })
               .then(
                 data => {
                   this.showNotice('Thông Báo', 'Lưu Thành Công', 'success');
-                  this.getData();
+                  this.getData(key);
                   this.loading = false;
                 },
                 error => {
@@ -352,7 +304,8 @@ export default {
                 ? this.formData.long_description
                 : '',
               images: this.imageList,
-              createdAt: new Date().toString(),
+              createdAt: this.formData.createdAt,
+              updatedAt: moment().format('YYYYMMDDHHmmss'),
             };
 
             let updates = {};
@@ -367,12 +320,9 @@ export default {
                     this.imageRemovedList &&
                     this.imageRemovedList.length > 0
                   ) {
-                    console.log(this.imageRemovedList);
                     this.imageRemovedList.forEach(fullPath => {
-                      console.log(fullPath);
                       this.$storage.ref(fullPath).delete();
                     });
-
                     this.imageRemovedList = [];
                   }
 
@@ -381,7 +331,7 @@ export default {
                     'Cập Nhập Thành Công',
                     'success',
                   ); //Warning//Info//
-                  this.getData();
+                  this.getData(this.formData.key);
                   this.loading = false;
                 },
                 error => {
@@ -460,6 +410,10 @@ export default {
       reader.readAsArrayBuffer(file);
     },
     //Qill Editor
+
+    handleCancel(){
+      this.$router.push('/admin/products');
+    }
   },
 
   created() {
@@ -531,3 +485,59 @@ export default {
   padding: 10px;
 }
 </style>
+
+
+
+    // async submitUpload() {
+    //   if (this.$refs.upload.uploadFiles) {
+    //     this.loading = true;
+    //     let files = this.$refs.upload.uploadFiles;
+    //     //console.log(files);
+    //     if (files) {
+    //       let promises = [];
+
+    //       console.log('files >>>>>>>>>>', files);
+
+    //       files.forEach(file => {
+    //         const ext = file.name.slice(file.name.lastIndexOf('.'));
+    //         const fileName = file.name.slice(0, file.name.lastIndexOf('.'));
+    //         const extraFileName = Math.random()
+    //           .toString(36)
+    //           .substring(2, 10)
+    //           .toUpperCase();
+
+    //         promises.push(
+    //           this.$storage
+    //             .ref('images/' + fileName + extraFileName + '.' + ext)
+    //             .put(file.raw)
+    //             .then(snapshot => {
+    //               //this.imageList.push(value);
+    //               //this.loading = false;
+
+    //               return {
+    //                 name: snapshot.metadata.name,
+    //                 url: snapshot.downloadURL,
+    //                 time: snapshot.metadata.timeCreated,
+    //                 fullPath: snapshot.metadata.fullPath,
+    //               };
+    //             }),
+    //         );
+    //       });
+
+    //       Promise.all(promises).then(imageInfo => {
+    //         // console.log('imageList >>>>>>>>>>', this.imageList);
+    //         // console.log('imageInfo >>>>>>>>>>', imageInfo);
+
+    //         imageInfo.forEach(element => {
+    //           this.imageList.push(element);
+    //         });
+    //         console.log('imageList >>>>>>>>>>', this.imageList);
+
+    //         this.loading = false;
+    //         this.$refs.upload.clearFiles();
+
+    //         this.handleSave();
+    //       });
+    //     }
+    //   }
+    // },
