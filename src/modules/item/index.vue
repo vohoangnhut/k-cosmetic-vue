@@ -4,6 +4,10 @@
     .page-header-image
   .section
     .container
+      .row  
+        .col-md-1.col-sm-1
+          button.btn(@click='goBack')
+            i.fa.fa-angle-left
       .row
         .col-md-5
           .block
@@ -92,6 +96,9 @@ export default {
   },
 
   methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
     getData(prodId) {
       if (!prodId) {
         toastr.warning('Sản Phẩm Bạn Tìm Kiếm Không Tồn Tại');

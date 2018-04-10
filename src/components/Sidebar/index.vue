@@ -6,10 +6,10 @@
     a.simple-text.logo-normal(href='http://google.com')
       | Kim Comestic
   .sidebar-wrapper
-    ul.nav
+    ul.nav(@click='clickNavBar')
       //item(to='/admin/products', title='Nhân Viên', icon="users_single-02")
       item(to='/admin/products', title='Sản Phẩm', icon="design_app")
-      //item(to='/admin/upload', title='Sản Phẩm', icon="design_app")
+      item(to='/admin/setting', title='Đỗi Mặt Khẩu', icon="loader_gear")
 </template>
 
 <script>
@@ -32,6 +32,12 @@ export default {
       }
       return false
     },
+  },
+
+   methods: {
+    clickNavBar() {
+      this.$emit('clickNavBar');
+    }
   },
 };
 </script>

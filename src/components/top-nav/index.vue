@@ -1,15 +1,19 @@
 <template lang="pug">
 nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent(color-on-scroll='500')
-  .container
+  .container(:class='{ "nav-open": navOpen }')
     .navbar-translate
       a.navbar-brand(href='/', rel='tooltip', title='K Comestic” trong 60s', data-placement='bottom')
         | K COMESTIC
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navigation', aria-controls='navigation-index', aria-expanded='false', aria-label='Toggle navigation')
+      button.navbar-toggler(type='button', 
+        data-toggle='collapse', 
+        data-target='#navigation', 
+        aria-controls='navigation-index', aria-expanded='false', aria-label='Toggle navigation',
+        @click='toggleNavBar')
         span.navbar-toggler-bar.bar1
         span.navbar-toggler-bar.bar2
         span.navbar-toggler-bar.bar3
     .collapse.navbar-collapse(data-nav-image='../assets/img/blurred-image-1.jpg', data-color='orange')
-      ul.navbar-nav.ml-auto
+      ul.navbar-nav.ml-auto(@click='toggleNavBar')
         item(to='/', title='Home', icon="tech_mobile")
         item(to='/product', title='Sản Phẩm', icon="shopping_bag-16")
         //- item(to='/about', title='About', icon="emoticons_satisfied")
@@ -30,14 +34,30 @@ nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent(color-on-scroll='
 import Item from './item';
 
 export default {
+  // props: {
+  //   navOpen : Boolean,
+  // },
   components: {
     Item,
+  },
+
+  data() {
+    return {
+      
+      navOpen: false
+    };
   },
 
   computed: {
     isHome() {
       return this.$route.path === '/' || this.$route.name === 'Home';
     },
+  },
+
+  methods: {
+    toggleNavBar() {
+      this.navOpen = !this.navOpen;
+    }
   },
 
   created() {

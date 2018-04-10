@@ -3,25 +3,18 @@ nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.bg-primary.fixed-
   .container-fluid
     .navbar-wrapper
       .navbar-toggle
-        button.navbar-toggler(type='button')
+        button.navbar-toggler(type='button' @click='clickNavBar')
           span.navbar-toggler-bar.bar1
           span.navbar-toggler-bar.bar2
           span.navbar-toggler-bar.bar3
-      a.navbar-brand {{title}}
-    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navigation', aria-controls='navigation-index', aria-expanded='false', aria-label='Toggle navigation')
-      span.navbar-toggler-bar.navbar-kebab
-      span.navbar-toggler-bar.navbar-kebab
-      span.navbar-toggler-bar.navbar-kebab
-    #navigation.collapse.navbar-collapse.justify-content-end
-      ul.navbar-nav
-        li.nav-item
-          a.nav-link
-            p Xin Chào Admin !
-        li.nav-item
-          a.nav-link(@click="logout")
-            i.now-ui-icons.arrows-1_share-66
-            p
-              span.d-lg-none.d-md-block Sign Out
+      //a.navbar-brand {{title}}
+
+    ul.navbar-nav
+      li.nav-item
+        a.nav-link(@click="logout")
+          i.now-ui-icons.arrows-1_share-66
+          p
+            span.d-lg-none.d-md-block Sign Out
               
         
 </template>
@@ -42,7 +35,11 @@ export default {
   },
 
   methods: {
-    ...mapActions('session', ['logout'])
+    ...mapActions('session', ['logout']),
+
+    clickNavBar() {
+      this.$emit('clickNavBar');
+    }
   },
 
 

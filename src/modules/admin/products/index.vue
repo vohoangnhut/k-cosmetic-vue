@@ -10,17 +10,18 @@ div(v-loading.fullscreen.lock='loading')
         el-button(type='success', icon='plus', @click='metHandlerAddNew') Thêm Mới
     br
     el-row
-      el-table(ref='singleTable', :data='lstDataDisplay', border='', style='width: 100%',  :default-sort = "{prop: 'createdAt', order: 'ascending'}")
-        el-table-column(type='index', width='50')
-        el-table-column(property='name', label='Tên', width='600', :sortable="true")
-        el-table-column(property='price', label='Giá', width='200', :sortable="true")
-        //el-table-column(property='short_description', label='Mô Tả', width='200', :sortable="true")
-        el-table-column(label='action', width='150')
+      el-table(ref='singleTable', :data='lstDataDisplay', border='', style='width: 100%')
+        el-table-column(label='Thao Tác', width='130')
           template(slot-scope='scope')
             el-tooltip.item(effect='dark', content='Edit', placement='left-start')
               el-button(size='small', @click='handleEdit(scope.$index, scope.row)', icon='el-icon-edit')
             el-tooltip.item(effect='dark', content='Delete', placement='right-start')
               el-button(size='small', type='danger', @click='handleDelete(scope.$index, scope.row)', icon='el-icon-delete')
+        //el-table-column(type='index', width='50')
+        el-table-column(property='name', label='Tên', width='600', :sortable="true")
+        el-table-column(property='price', label='Giá', width='200', :sortable="true")
+        //el-table-column(property='short_description', label='Mô Tả', width='200', :sortable="true")
+        
       //el-button(type='info', size='small', icon='plus', @click='handlerLoadMore', style='margin-top: 10px;') Load More
       
 

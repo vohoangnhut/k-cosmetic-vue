@@ -1,8 +1,8 @@
 <template lang="pug">
-.wrapper
-  sidebar
+.wrapper(:class='{ "nav-open": navOpen }')
+  sidebar(@clickNavBar='toggleNavBar')
   .main-panel
-    app-header
+    app-header(@clickNavBar='toggleNavBar')
     .panel-header(:class='[isDashboard ? "panel-header-lg" : "panel-header-sm"]')
       big-chart(v-if='isDashboard', :data='bigChartDatas.datas', :labels='bigChartDatas.labels')
     .content
@@ -42,9 +42,10 @@ export default {
     return {
       wsReconnecting: false,
       miniSidebar: false,
-      isDashboard: false
+      isDashboard: false,
       //chartData: [],
       //chartLabels: [],
+      navOpen : false
     };
   },
 
@@ -60,7 +61,9 @@ export default {
   },
 
   methods: {
-    
+     toggleNavBar() {
+       this.navOpen = !this.navOpen;
+    }
   },
 
   /**

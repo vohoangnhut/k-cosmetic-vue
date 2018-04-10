@@ -11,6 +11,7 @@ import Item from '@/modules/item';
 import Upload from '@/modules/upload';
 import Products from '@/modules/admin/products';
 import AdminProduct from '@/modules/admin/product';
+import Setting from '@/modules/admin/setting';
 
 
 Vue.use(Router);
@@ -50,6 +51,15 @@ const router = new Router({
       meta: {
         requiresAuth: true,
         title: 'Sản Phẩm'
+      }
+    },{
+      //:branchId
+      path: '/admin/setting',
+      name: 'Setting',
+      component: Setting,
+      meta: {
+        requiresAuth: true,
+        title: 'Setting'
       }
     },
     {
