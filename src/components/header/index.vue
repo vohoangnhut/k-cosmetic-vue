@@ -9,23 +9,26 @@ nav.navbar.navbar-expand-lg.navbar-absolute.bg-primary.fixed-top(:class='{ "bg-w
           span.navbar-toggler-bar.bar3
       //a.navbar-brand {{title}}
     
-    button.navbar-toggler(type='button', 
-                          data-toggle='collapse', 
-                          data-target='#navigation', 
-                          aria-controls='navigation-index', 
-                          aria-expanded='false', 
-                          aria-label='Toggle navigation',
-                          @click='toggleNavProfile')
-      span.navbar-toggler-bar.navbar-kebab
-      span.navbar-toggler-bar.navbar-kebab
-      span.navbar-toggler-bar.navbar-kebab
-    #navigation.collapse.navbar-collapse.justify-content-end(:class='{ "show": openProfile }')
-      ul.navbar-nav
-        li.nav-item
-          a.nav-link(@click="logout")
-            i.now-ui-icons.arrows-1_share-66
-            p
-              span.d-lg-none.d-md-block Sign Out
+    //- ul.navbar-nav
+    //-   li.nav-item
+    //- .navbar-nav
+    //-   .nav-item
+    a.logout-item(@click="logout")
+        i.now-ui-icons.users_circle-08
+          //p SIGN OUT
+    
+    //- button.navbar-toggler(type='button', 
+    //-                       @click='toggleNavProfile')
+    //-   span.navbar-toggler-bar.navbar-kebab
+    //-   span.navbar-toggler-bar.navbar-kebab
+    //-   span.navbar-toggler-bar.navbar-kebab
+    //- #navigation.collapse.navbar-collapse.justify-content-end(:class='{ "show": openProfile }')
+    //-   ul.navbar-nav
+    //-     li.nav-item
+    //-       a.nav-link(@click="logout")
+    //-         i.now-ui-icons.arrows-1_share-66
+    //-         p
+    //-           span.d-lg-none.d-md-block Sign Out
     //- ul.navbar-nav
     //-   li.nav-item
     //-     a.nav-link(@click="logout")
@@ -38,18 +41,16 @@ nav.navbar.navbar-expand-lg.navbar-absolute.bg-primary.fixed-top(:class='{ "bg-w
 <script>
 import { mapGetters, mapActions, mapState } from 'vuex';
 
-
 export default {
-   data() {
-      return {
-        title : '',
-        openProfile: false
-      }
-    },
+  data() {
+    return {
+      title: '',
+      openProfile: false,
+    };
+  },
 
   computed: {
     ...mapActions('session', ['me']),
-
   },
 
   methods: {
@@ -61,13 +62,12 @@ export default {
 
     toggleNavProfile() {
       this.openProfile = !this.openProfile;
-    }
+    },
   },
-
 
   created() {
     this.title = this.$route.meta.title;
-  }
+  },
 };
 </script>
 <style lang='scss' scoped>
@@ -78,5 +78,19 @@ export default {
     border: 0;
     margin: 10px 0;
   }
+}
+
+.logout-item {
+  padding: 5px 7px 2px 7px;
+  font-size: 1.3em;
+
+  // margin: 5px;
+  // padding: 5px 7px 4px 7px;
+  border-radius: 3px;
+}
+
+.logout-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
 }
 </style>
