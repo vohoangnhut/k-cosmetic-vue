@@ -1,7 +1,7 @@
 @mixin navbar-collapse() {
     .navbar-collapse{
         position: fixed;
-        display: block;
+        display: block !important;
         top: 0;
         height: 100% !important;
         width: 300px;
@@ -22,7 +22,7 @@
             @include icon-gradient($default-color);
             @include opacity(.76);
 
-            display: block;
+            display: block !important;
             content: "";
             position: absolute;
             width: 100%;

@@ -1,20 +1,37 @@
 <template lang="pug">
-nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.bg-primary.fixed-top
+nav.navbar.navbar-expand-lg.navbar-absolute.bg-primary.fixed-top(:class='{ "bg-white": openProfile, "navbar-transparent": !openProfile }')
   .container-fluid
     .navbar-wrapper
       .navbar-toggle
-        button.navbar-toggler(type='button' @click='clickNavBar')
+        button.navbar-toggler(type='button', @click='clickNavBar')
           span.navbar-toggler-bar.bar1
           span.navbar-toggler-bar.bar2
           span.navbar-toggler-bar.bar3
       //a.navbar-brand {{title}}
-
-    ul.navbar-nav
-      li.nav-item
-        a.nav-link(@click="logout")
-          i.now-ui-icons.arrows-1_share-66
-          p
-            span.d-lg-none.d-md-block Sign Out
+    
+    button.navbar-toggler(type='button', 
+                          data-toggle='collapse', 
+                          data-target='#navigation', 
+                          aria-controls='navigation-index', 
+                          aria-expanded='false', 
+                          aria-label='Toggle navigation',
+                          @click='toggleNavProfile')
+      span.navbar-toggler-bar.navbar-kebab
+      span.navbar-toggler-bar.navbar-kebab
+      span.navbar-toggler-bar.navbar-kebab
+    #navigation.collapse.navbar-collapse.justify-content-end(:class='{ "show": openProfile }')
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(@click="logout")
+            i.now-ui-icons.arrows-1_share-66
+            p
+              span.d-lg-none.d-md-block Sign Out
+    //- ul.navbar-nav
+    //-   li.nav-item
+    //-     a.nav-link(@click="logout")
+    //-       i.now-ui-icons.arrows-1_share-66
+    //-       p
+    //-         span.d-lg-none.d-md-block Sign Out
               
         
 </template>
@@ -26,6 +43,7 @@ export default {
    data() {
       return {
         title : '',
+        openProfile: false
       }
     },
 
@@ -39,6 +57,10 @@ export default {
 
     clickNavBar() {
       this.$emit('clickNavBar');
+    },
+
+    toggleNavProfile() {
+      this.openProfile = !this.openProfile;
     }
   },
 
