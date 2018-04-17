@@ -1,10 +1,10 @@
 export const FIREBASE_CONFIG = {
-  apiKey: 'AIzaSyCN0uPpRudGlcZclIznIlNcjKXFdLz971E',
-  authDomain: 'k-comestic.firebaseapp.com',
-  databaseURL: 'https://k-comestic.firebaseio.com/',
-  projectId: 'k-comestic',
-  storageBucket: 'k-comestic.appspot.com',
-  messagingSenderId: '487438741734'
+  apiKey: 'AIzaSyDQZWq35mpcxVKtVhGnzDItlGXOhEFoIPY',
+  authDomain: 'k-comestic-dabcc.firebaseapp.com',
+  databaseURL: 'https://k-comestic-dabcc.firebaseio.com/',
+  projectId: 'k-comestic-dabcc',
+  storageBucket: 'k-comestic-dabcc.appspot.com',
+  messagingSenderId: '344689221537'
 };
 
 //Service accounts
