@@ -2,8 +2,8 @@
 nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent(color-on-scroll='500')
   .container(:class='{ "nav-open": navOpen }')
     .navbar-translate
-      a.navbar-brand(href='/', rel='tooltip', title='K Comestic', data-placement='bottom')
-        | HAKIM COMESTIC
+      a.navbar-brand(href='/', rel='tooltip', title='Ha Kim Lrocre', data-placement='bottom')
+        | Ha Kim Lrocre
       button.navbar-toggler(type='button', 
         data-toggle='collapse', 
         data-target='#navigation', 
@@ -18,7 +18,7 @@ nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent(color-on-scroll='
         item(to='/product', title='Sản Phẩm', icon="shopping_bag-16")
         //- item(to='/about', title='About', icon="emoticons_satisfied")
         //- item(to='/qa', title='Hỏi đáp', icon="ui-2_chat-round")
-        item(to='/login', title='Đăng nhập', icon="business_badge")
+        //item(to='/login', title='Đăng nhập', icon="business_badge")
         //- li.nav-item
         //-   a.nav-link(href='http://fibo.vn/', target='_blank')
         //-     i.now-ui-icons.objects_globe

@@ -3,8 +3,8 @@
   .logo
     a.simple-text.logo-mini
       
-    a.simple-text.logo-normal(href='http://google.com')
-      | Kim Comestic
+    a.simple-text.logo-normal(href='https://hakimlrocre.com')
+      | Ha Kim Lrocre
   .sidebar-wrapper
     ul.nav(@click='clickNavBar')
       //item(to='/admin/products', title='Nhân Viên', icon="users_single-02")

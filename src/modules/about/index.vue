@@ -10,15 +10,15 @@
   .section
     .container
       .col-md-12.ml-auto.mr-auto
-        h3.title Kính chào Quý  Công Ty, Quý Nhà Phân Phối, Quý Khách Hàng!
+        h3.title.title-large Kính chào Quý  Công Ty, Quý Nhà Phân Phối, Quý Khách Hàng!
         p 
-          b Lrocre24h.com 
+          b HaKim Lrocre 
           | Website chính thức của Công ty TNHH MTV Đào tạo SXTM Lyona Beauty & Cosmetic, chuyên cung cấp độc quyền dòng kem Lro’cre chính hãng :
         
         h6.title-red Khi trở thành nhà phân phối – Đại lý của mỹ phẩm Lro’cre bạn nhận được:
         ul
           li Mức chiết khấu cao -Hấp dẫn nhất.
-          li Hỗ trợ bao bì đẹp có gắn logo độc quyền của Lrocre24h.com
+          li Hỗ trợ bao bì đẹp có gắn logo độc quyền của HaKim Lrocre
           li Độc quyền phân phối sản phẩm tại thành phố, khu vực.
           li Hỗ trợ các hoạt động khuyến mãi, hoạt động bán hàng…
 
@@ -29,11 +29,11 @@
           li Sản phẩm có giấy tờ lưu hàng trên toàn quốc
           li Được xuất hóa đơn đỏ khi tới tay người tiêu dùng
 
-        h6.title-red p Giá cả sản phẩm:
+        h6.title-red Giá cả sản phẩm:
         ul
           li 
             | Cam kết mang đến cho các Nhà Phân Phối mức p Giá hợp lý và mức chiết khấu hấp dẫn nhất – Chỉ có tại 
-            b Lrocre24h.com
+            b HaKim Lrocre
 
         h6.title-red Quyền lợi đổi trả:
         ul
@@ -57,9 +57,9 @@
 
         p Và để ghi nhận đền đáp sự nỗ lực của Công Ty Lro’Cre, các đơn vị, nhà tổ chức nổi tiếng về thương hiệu và báo chí trong các năm 2013, 2014 và 2015 đã trao tặng nhiều danh hiệu cao quý cho mỹ phẩm Lro’Cre, đây như một sự đánh dấu trưởng thành & phấn đấu của Lro’Cre trong nhiều năm qua.
 
-        .row
-          .col-md-12.ml-auto.mr-auto
-            img.img.img-raised.rounded.iamge-center(src='~img/examples/bia1.jpg')
+        //- .row
+        //-   .col-md-12.ml-auto.mr-auto
+        //-     img.img.img-raised.rounded.iamge-center(src='~img/examples/bia1.jpg')
         br
 
         .row
@@ -85,11 +85,11 @@
         
         .row
           .col-md-12.ml-auto.mr-auto
-            img.img.img-raised.rounded.iamge-center(src='~img/examples/14606337_183018568773112_4100313468685204183_n.jpg')
+            img.img.img-raised.rounded.iamge-center(src='~img/examples/img2.jpg')
         br
         .row
           .col-md-12.ml-auto.mr-auto
-            img.img.img-raised.rounded.iamge-center(src='~img/examples/at1.jpg')
+            img.img.img-raised.rounded.iamge-center(src='~img/examples/img3.jpg')
         br
 
         h6.title-red Với những thành tích liên tiếp mà Lro’Cre đạt được như.
@@ -118,33 +118,30 @@
 
         p Với phương châm “đẹp toàn diện từ bên ngoài lẫn bên trong” và luôn luôn đặt sức khỏe và sắc đẹp cộng đồng lên trên hết. Lro’Cre xin hứa với các bạn sẽ đem lại sự vừa lòng tuyệt đối cho khách hàng.
         
-        h3.title BẢNG GiÁ CÁC MẶT HÀNG MỸ PHẨM LRO’CRE CỦA CÔNG TY LYONA BEAUTY & COSMETICS NIÊM YẾT TOÀN QUỐC
+        h3.title.title-large BẢNG GiÁ CÁC MẶT HÀNG MỸ PHẨM LRO’CRE CỦA CÔNG TY LYONA BEAUTY & COSMETICS NIÊM YẾT TOÀN QUỐC
             
         .row
           .col-md-4.ml-auto
             b 1. Kem Baby skin mẫu mã mới 2017.
             p Giá lẻ : 400k
-            ul
-              li Trên 5   : 280k
-              li Trên 20  : 260k
-              li Trên 50  : 240k
-              li Trên 100 : 230k	
+            li Trên 5   : 280k
+            li Trên 20  : 260k
+            li Trên 50  : 240k
+            li Trên 100 : 230k	
           .col-md-4.ml-auto
             b 2. Kem mặt Bel ( Pigment and Whitening Queen)
             p Giá lẻ: 550K
-            ul
-              li Trên 5   :400k
-              li Trên 20  : 370k
-              li Trên 45  :340k
-              li Trên 100 : 310k	
+            li Trên 5   :400k
+            li Trên 20  : 370k
+            li Trên 45  :340k
+            li Trên 100 : 310k	
           .col-md-4.ml-auto
             b 3. Kem mặt đêm 20g (Whitening Renewal & Anti-Aging Lro’Cre Cream)
             p Giá lẻ: 550K
-            ul
-              li Trên 5: 410k
-              li Trên 20 : 370k
-              li Trên 45 : 330k
-              li Trên 100 : 310k
+            li Trên 5: 410k
+            li Trên 20 : 370k
+            li Trên 45 : 330k
+            li Trên 100 : 310k
         .row
           .col-md-4.ml-auto
             b 4. Kem dưỡng trắng da chống lão hoá 30g (Extreme whitening cream)
@@ -340,11 +337,10 @@
           .col-md-4.ml-auto
             b 29. BẢNG p Giá NƯỚC HOA LRO’CRE FASCINO 50ml
             p Giá lẻ: 550.000đ
-            ul
-              li Số lượng sỉ trên 5: 350.000đ
-              li Số lượng sỉ trên 20: 310.000đ
-              li Số lượng sỉ trên 45: 290.000đ
-              li Số lượng sỉ trên 100 : 270.000đ
+            li Số lượng sỉ trên 5: 350.000đ
+            li Số lượng sỉ trên 20: 310.000đ
+            li Số lượng sỉ trên 45: 290.000đ
+            li Số lượng sỉ trên 100 : 270.000đ
           .col-md-4.ml-auto
             b 30. MẶT NẠ TƯƠI Collagen – MUA 1 được 2. Có 2 được 1 làn da hoàn hảo .
             p Giá lẻ : 320k
@@ -353,7 +349,7 @@
             li Trên 50 : 140k
             li Trên 100 : 120k
 
-        h3.title DÒNG SẢN PHẨM LYMIX (100% TỰ NHIÊN)
+        h3.title.title-large DÒNG SẢN PHẨM LYMIX (100% TỰ NHIÊN)
         .row
           .col-md-4.ml-auto
             b 1) Tinh chất bôi nở ngực Mộc Sữa ( Dạng tinh chất thoa , thảo mộc nhẹ nhàng quyến rũ , giúp săn chắc , nở ngực hiệu quả , làm sáng da nhất là nhũ hoa ) 
@@ -403,19 +399,21 @@
           .col-md-4.ml-auto
             b BẢNG GIÁ NƯỚC HOA LRO’CRE FASCINO 50ml 
             p Giá lẻ: 550.000đ
-            li Số lượng sỉ trên 5: 350.000đ
-            li Số lượng sỉ trên 20: 310.000đ
-            li Số lượng sỉ trên 45: 290.000đ
-            li Số lượng sỉ trên 100 : 270.000đ
-            li Số lượng sỉ trên 200 : 250.000đ 
+            ul            
+              li Số lượng sỉ trên 5: 350.000đ
+              li Số lượng sỉ trên 20: 310.000đ
+              li Số lượng sỉ trên 45: 290.000đ
+              li Số lượng sỉ trên 100 : 270.000đ
+              li Số lượng sỉ trên 200 : 250.000đ 
           .col-md-4.ml-auto
             b BẢNG GIÁ NƯỚC HOA LRO’CRE LUXURY 50ml 
             p Giá lẻ: 550.000đ
-            li Số lượng sỉ trên 5: 350.000đ
-            li Số lượng sỉ trên 20: 310.000đ
-            li Số lượng sỉ trên 45: 290.000đ
-            li Số lượng sỉ trên 100 : 270.000đ
-            li Số lượng sỉ trên 200 : 250.000đ
+            ul
+              li Số lượng sỉ trên 5: 350.000đ
+              li Số lượng sỉ trên 20: 310.000đ
+              li Số lượng sỉ trên 45: 290.000đ
+              li Số lượng sỉ trên 100 : 270.000đ
+              li Số lượng sỉ trên 200 : 250.000đ
         .row
           .col-md-4.ml-auto
             b SERUM KIỀU BEAUTY QUEEN
@@ -443,7 +441,7 @@
               li Trên 20 : 430
               li Trên 45 : 390
               li Trên 100 : 350
-        h3.title BẢNG GIÁ CÁC MẶT HÀNG ZN
+        h3.title.title-large BẢNG GIÁ CÁC MẶT HÀNG ZN
         .row
           .col-md-4.ml-auto
             b TRÀ GIẢM CÂN HOA SÂM ĐẤT
@@ -549,6 +547,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.title-red{
+  color: #b63232
+}
+
+.title-large {
+  color: #b63232
+}
 .page-header-image {
   background-image: url('~img/bg22.jpg');
   background-size: cover;

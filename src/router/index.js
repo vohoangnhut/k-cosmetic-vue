@@ -39,7 +39,7 @@ const router = new Router({
 
 
     {
-      path: '/login',
+      path: '/admin',
       name: 'Login',
       component: Login,
       meta: { requiresAuth: false, title: 'Login' }
@@ -102,8 +102,8 @@ router.beforeEach((to, from, next) => {
   // console.log('currentUser', currentUser)
   // console.log('to', to)
   // console.log('from', from)
-  if (to.path != '/login') next();
-  if (requiresAuth && !currentUser) next('login');
+  if (to.path != '/admin') next();
+  if (requiresAuth && !currentUser) next('admin');
   else if (!requiresAuth && currentUser) next('/admin/products');
   else next();
 });
