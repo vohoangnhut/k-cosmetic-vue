@@ -5,9 +5,8 @@
     .content-center
       .row
         .col-md-8.ml-auto.mr-auto
-          h1.title KIM Comestic
-          h4 Let’s be Beautiful. Be Colorful. and Be You.
-          h5 Trang này để show sản phẩm, có tên và giá của từng sản phẩm
+          h1.title Hà Kim Lrocre
+          h4 Let’s be Beautiful. Be Colorful. and Be You
   .section
     .container
         .col-md-12

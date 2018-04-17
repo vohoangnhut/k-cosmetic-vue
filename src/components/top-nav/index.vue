@@ -2,8 +2,8 @@
 nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent(color-on-scroll='500')
   .container(:class='{ "nav-open": navOpen }')
     .navbar-translate
-      a.navbar-brand(href='/', rel='tooltip', title='K Comestic” trong 60s', data-placement='bottom')
-        | K COMESTIC
+      a.navbar-brand(href='/', rel='tooltip', title='K Comestic', data-placement='bottom')
+        | HAKIM COMESTIC
       button.navbar-toggler(type='button', 
         data-toggle='collapse', 
         data-target='#navigation', 
