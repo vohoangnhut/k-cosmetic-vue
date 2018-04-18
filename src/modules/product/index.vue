@@ -6,152 +6,22 @@
       .row
         .col-md-8.ml-auto.mr-auto
           h1.title Hà Kim Lrocre
-          h4 Let’s be Beautiful. Be Colorful. and Be You
-  .section
-    .container
-        .col-md-12
-          .row
-            .col-lg-3.col-md-4(v-for='(item, index) in lstProducts', :key='index')
-              .card.card-product.card-plain
-                .card-image(@click='gotoDetails(item.key)')
-                  img.product-img(:src='item.images ? item.images[0].url : exmapleImageProduct', alt='...Product...Image...')
-                .card-body
-                  h4.card-title {{ item.name }}
-                  p.card-description
-                    | {{ formatCurrency(item.price) }} VNĐ
+  
+  .container
+      .col-md-12
+        .row
+          .col-lg-12.col-md-12
+            h3.title.title-large.title-center Sản Phẩm
+        .row
+          .col-lg-3.col-md-4(v-for='(item, index) in lstProducts', :key='index')
+            .card.card-product.card-plain
+              .card-image(@click='gotoDetails(item.key)')
+                img.product-img(:src='item.images ? item.images[0].url : exmapleImageProduct', alt='...Product...Image...')
+              .card-body
+                h4.card-title {{ item.name }}
+                p.card-description
+                  | {{ formatCurrency(item.price) }} VNĐ
            
-            //- .col-lg-3.col-md-4
-            //-   .card.card-product.card-plain
-            //-     .card-image
-            //-       a(href='#')
-            //-         img.product-img(src='https://firebasestorage.googleapis.com/v0/b/k-comestic.appspot.com/o/images%2FPhoto%207-23-16%2C%202%2004%2011%20PMND3JINIB..jpg?alt=media&token=b14bdbea-2f80-469a-93cf-407ba7d0a491', alt='...')
-            //-     .card-body
-            //-       a(href='#')
-            //-         h4.card-title Impeccably tailored
-            //-       p.card-description
-            //-         | 24,000,000 VNĐ
-
-            //-   // end card
-            //- .col-lg-3.col-md-4
-            //-   .card.card-product.card-plain
-            //-     .card-image
-            //-       a(href='#')
-            //-         img(src='~img/wooyoungmi.jpg', alt='...')
-            //-     .card-body
-            //-       a(href='#')
-            //-         h4.card-title Impeccably tailored
-            //-       p.card-description
-            //-         | 24,000,000 VNĐ
-
-            //-   // end card
-            //- .col-lg-3.col-md-4
-            //-   .card.card-product.card-plain
-            //-     .card-image
-            //-       a(href='#')
-            //-         img(src='~img/sweeney.jpg', alt='...')
-            //-     .card-body
-            //-       a(href='#')
-            //-         h4.card-title Impeccably tailored
-            //-       p.card-description
-            //-         | 24,000,000 VNĐ
-
-            //-   // end card
-            //- .col-lg-3.col-md-4
-            //-   .card.card-product.card-plain
-            //-     .card-image
-            //-       a(href='#')
-            //-         img(src='~img/kingsman.jpg', alt='...')
-            //-     .card-body
-            //-       a(href='#')
-            //-         h4.card-title Impeccably tailored
-            //-       p.card-description
-            //-         | 24,000,000 VNĐ
-
-            //-   // end card
-            //- .col-lg-3.col-md-4
-            //-   .card.card-product.card-plain
-            //-     .card-image
-            //-       a(href='#')
-            //-         img(src='~img/boglioli.jpg', alt='...')
-            //-     .card-body
-            //-       a(href='#')
-            //-         h4.card-title Impeccably tailored
-            //-       p.card-description
-            //-         | 24,000,000 VNĐ
-            
-            //- .col-lg-3.col-md-4
-            //-   .card.card-product.card-plain
-            //-     .card-image
-            //-       a(href='#')
-            //-         img(src='~img/polo.jpg', alt='...')
-            //-     .card-body
-            //-       a(href='#')
-            //-         h4.card-title Impeccably tailored
-            //-       p.card-description
-            //-         | 24,000,000 VNĐ
-           
-            //- .col-lg-3.col-md-4
-            //-   .card.card-product.card-plain
-            //-     .card-image
-            //-       a(href='#')
-            //-         img(src='~img/tom-ford.jpg', alt='...')
-            //-     .card-body
-            //-       a(href='#')
-            //-         h4.card-title Impeccably tailored
-            //-       p.card-description
-            //-         | 24,000,000 VNĐ
-
-            //-   // end card
-            //- .col-lg-3.col-md-4
-            //-   .card.card-product.card-plain
-            //-     .card-image
-            //-       a(href='#')
-            //-         img(src='~img/wooyoungmi.jpg', alt='...')
-            //-     .card-body
-            //-       a(href='#')
-            //-         h4.card-title Impeccably tailored
-            //-       p.card-description
-            //-         | 24,000,000 VNĐ
-
-            //-   // end card
-            //- .col-lg-3.col-md-4
-            //-   .card.card-product.card-plain
-            //-     .card-image
-            //-       a(href='#')
-            //-         img(src='~img/sweeney.jpg', alt='...')
-            //-     .card-body
-            //-       a(href='#')
-            //-         h4.card-title Impeccably tailored
-            //-       p.card-description
-            //-         | 24,000,000 VNĐ
-
-            //- .col-lg-3.col-md-4
-            //-   .card.card-product.card-plain
-            //-     .card-image
-            //-       a(href='#')
-            //-         img(src='~img/kingsman.jpg', alt='...')
-            //-     .card-body
-            //-       a(href='#')
-            //-         h4.card-title Impeccably tailored
-            //-       p.card-description
-            //-         | 24,000,000 VNĐ
-
-            //-   // end card
-            //- .col-lg-3.col-md-4
-            //-   .card.card-product.card-plain
-            //-     .card-image
-            //-       a(href='#')
-            //-         img(src='~img/boglioli.jpg', alt='...')
-            //-     .card-body
-            //-       a(href='#')
-            //-         h4.card-title Impeccably tailored
-            //-       p.card-description
-            //-         | 24,000,000 VNĐ
-            
-          //- .row
-          //-   .ml-auto.mr-auto
-          //-       button.btn.btn-primary.btn-round(rel='tooltip', @click='getMore') Load more...
-
   app-footer
 </template>
 
@@ -283,7 +153,7 @@ export default {
   padding-top: 150px !important;
 }
 .page-header-image {
-  background-image: url('~images/bg/bg32.jpg');
+  background-image: url('~img/cover.jpg');  
   background-size: cover;
   background-position: center center;
   width: 100%;
@@ -305,5 +175,9 @@ export default {
   transform: translateX(-50%) translateY(-50%);
   /* max-width: 100%; */
   max-height: 100%;
+}
+
+.title-center {
+  text-align: center;
 }
 </style>

@@ -3,37 +3,36 @@ footer.footer.footer-big(data-background-color='black')
 	.container
 		.content
 			.row
-				.col-md-12
-					h5 Liên Hệ
-					ul.links-vertical
-						li
-							| SDT : 01685522XX
-						li
-							| Địa Chỉ : 21 Lê Trung Nguyên, P12, Q.TB
-		
+				.col-md-4
+					h5 THÔNG TIN LIÊN HỆ
+					hr
+					.social-feed
+						.feed-line
+							i.fa.fa-map-marker
+							b Địa chỉ
+							p 17A Hồ Xuân Hương-P6-Q3-TP-HCM
+						.feed-line
+							i.fa.fa-phone
+							b Hotline 24/7
+							p 0162.638.5576
+				.col-md-4
+					h5 SHIP COD
+					hr
+					img.img-center(src='~img/examples/footer_banner-2.png')
 				
-				//- .col-md-6.right-content
-				//- 	h5 Follow Us
-				//- 	ul.social-buttons
-				//- 		li
-				//- 			a.btn.btn-icon.btn-neutral.btn-twitter.btn-round(href='#pablo')
-				//- 				i.fa.fa-twitter
-				//- 		li
-				//- 			a.btn.btn-icon.btn-neutral.btn-facebook.btn-round(href='#pablo')
-				//- 				i.fa.fa-facebook-square
-				//- 		li
-				//- 			a.btn.btn-icon.btn-neutral.btn-dribbble.btn-round(href='#pablo')
-				//- 				i.fa.fa-dribbble
-				//- 		li
-				//- 			a.btn.btn-icon.btn-neutral.btn-google.btn-round(href='#pablo')
-				//- 				i.fa.fa-google-plus
-				//- 		li
-				//- 			a.btn.btn-icon.btn-neutral.btn-instagram.btn-round(href='#pablo')
-				//- 				i.fa.fa-instagram
-		hr
-		.copyright
-			| Copyright ©
-			| Nhut Vo All Rights Reserved.
+				
+				.col-md-4
+					h5 FANPAGE HOME
+					hr
+					iframe(src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fremadepshop%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=435367986812872', 
+					width='100%',
+					height='130',
+					style='border:none;overflow:hidden', 
+					scrolling='no', 
+					frameborder='0', 
+					allowtransparency='true', 
+					allow='encrypted-media')
+
 
 
 </template>
@@ -50,6 +49,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.img-center {
+	width: 80%;
+}
 .right-content {
   text-align: right;
 }

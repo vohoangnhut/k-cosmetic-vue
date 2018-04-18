@@ -6,7 +6,7 @@
       .row
         .col-md-12.ml-auto.mr-auto.text-center
           h2.title Hà Kim Lrocre
-          h4 MỸ PHẨM LRO’CRE CHUYÊN PHÂN PHỐI CHO CÁC ĐẠI LÝ, SỈ VÀ LẺ – FREE SHIP COD TOÀN QUỐC.
+          h4 CHUYÊN PHÂN PHỐI MỸ PHẨM LRO’CRE CHO CÁC ĐẠI LÝ, SỈ VÀ LẺ MIỄN PHÍ GIAO HÀNG TRÊN TOÀN QUỐC
   .section
     .container
       .col-md-12.ml-auto.mr-auto
@@ -555,7 +555,7 @@ export default {
   color: #b63232
 }
 .page-header-image {
-  background-image: url('~img/bg22.jpg');
+  background-image: url('~img/cover.jpg');
   background-size: cover;
   background-position: center center;
   width: 100%;
