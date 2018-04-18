@@ -24,16 +24,10 @@ footer.footer.footer-big(data-background-color='black')
 				.col-md-4
 					h5 FANPAGE HOME
 					hr
-					iframe(src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fremadepshop%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=435367986812872', 
-					width='100%',
-					height='130',
+					iframe(src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flrocre.hakim%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId', 
+					width='100%', height='130', 
 					style='border:none;overflow:hidden', 
-					scrolling='no', 
-					frameborder='0', 
-					allowtransparency='true', 
-					allow='encrypted-media')
-
-
+					scrolling='no', frameborder='0', allowtransparency='true', allow='encrypted-media')
 
 </template>
 
