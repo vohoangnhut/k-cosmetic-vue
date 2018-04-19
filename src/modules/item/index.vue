@@ -2,67 +2,67 @@
 .wrapper
   .page-header.page-header-mini
     .page-header-image
-  
-  .container
-    .row  
-      .col-md-1.col-sm-1
-        button.btn(@click='goBack')
-          i.fa.fa-angle-left
-          i.fa.fa-angle-left
-          i.fa.fa-angle-left
-          |    Quay Lại
-    .row
-      .col-md-5
-        .block
-          el-carousel(trigger='click', height='450px')
-            el-carousel-item(v-for='(item, index) in imageList', :key='index')
-              img(:src='item.url', alt='First slide')
-      .col-md-6.ml-auto.mr-auto
-        h2.title  {{ productVO.name }}
-        //h5.category Slim-Fit Leather Biker Jacket
-        h2.main-price {{ productVO.price }} VNĐ
-        #accordion.card-collapse(role='tablist', aria-multiselectable='true')
-          .card.card-plain
-            .card-header
-              | Mô Tả Sản Phẩm
-            .card-body.custom-ql-viewer
-              .ql-editor(v-html='productVO.short_description')
-              
-    .features-4
-      .container
-        .row
-          .ql-editor(v-html='productVO.long_description')
-          //- .col-md-8.ml-auto.mr-auto.text-center
-          //-   h2.title Hướng Dẫn Sử Dụng Và Công Dụng Của Sản Phẩm
-          //-   h4.description
-          //-     | Havenly is a convenient, personal and affordable way to redecorate your home room by room. Collaborate with our professional interior designers on our online platform.
-        .row
-          .col-md-4
-            .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg28.jpg')")
-              .info
-                .icon.icon-white
-                  i.now-ui-icons.emoticons_satisfied
-                .description
-                  h4.info-title Cam kết
-                  p Mỹ phẩm Trắng da Lro'cre chiết xuất từ thiên nhiên Đảm bảo an toàn - hiệu quả 100%
-                  
-          .col-md-4
-            .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg24.jpg')")
-              .info
-                .icon.icon-white
-                  i.now-ui-icons.tech_mobile
-                .description
-                  h4.info-title Liên Hệ
-                  p Qua số điện thoại 01626385576 hoặc chat trực tiếp với chúng tôi qua Facebook ngay phía góc phải
-                  
-          .col-md-4
-            .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg25.jpg')")
-              .info
-                .icon.icon-white
-                  i.now-ui-icons.shopping_delivery-fast
-                .description
-                  h4.info-title Vận Chuyễn
-                  p Chuyển khoản hoặc gửi tiền khi nhận hàng (COD). Miễn phí giao hàng trên toàn quốc
+  .section  
+    .container
+      .row  
+        .col-md-1.col-sm-1
+          button.btn(@click='goBack')
+            i.fa.fa-angle-left
+            i.fa.fa-angle-left
+            i.fa.fa-angle-left
+            |    Quay Lại
+      .row
+        .col-md-5
+          .block
+            el-carousel(trigger='click', height='450px')
+              el-carousel-item(v-for='(item, index) in imageList', :key='index')
+                img(:src='item.url', alt='First slide')
+        .col-md-6.ml-auto.mr-auto
+          h2.title  {{ productVO.name }}
+          //h5.category Slim-Fit Leather Biker Jacket
+          h2.main-price {{ productVO.price }} VNĐ
+          #accordion.card-collapse(role='tablist', aria-multiselectable='true')
+            .card.card-plain
+              .card-header
+                | Mô Tả Sản Phẩm
+              .card-body.custom-ql-viewer
+                .ql-editor(v-html='productVO.short_description')
+                
+      .features-4
+        .container
+          .row
+            .ql-editor(v-html='productVO.long_description')
+            //- .col-md-8.ml-auto.mr-auto.text-center
+            //-   h2.title Hướng Dẫn Sử Dụng Và Công Dụng Của Sản Phẩm
+            //-   h4.description
+            //-     | Havenly is a convenient, personal and affordable way to redecorate your home room by room. Collaborate with our professional interior designers on our online platform.
+          .row
+            .col-md-4
+              .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg28.jpg')")
+                .info
+                  .icon.icon-white
+                    i.now-ui-icons.emoticons_satisfied
+                  .description
+                    h4.info-title Cam kết
+                    p Mỹ phẩm Trắng da Lro'cre chiết xuất từ thiên nhiên Đảm bảo an toàn - hiệu quả 100%
+                    
+            .col-md-4
+              .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg24.jpg')")
+                .info
+                  .icon.icon-white
+                    i.now-ui-icons.tech_mobile
+                  .description
+                    h4.info-title Liên Hệ
+                    p Qua số điện thoại 01626385576 hoặc chat trực tiếp với chúng tôi qua Facebook ngay phía góc phải
+                    
+            .col-md-4
+              .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg25.jpg')")
+                .info
+                  .icon.icon-white
+                    i.now-ui-icons.shopping_delivery-fast
+                  .description
+                    h4.info-title Vận Chuyễn
+                    p Chuyển khoản hoặc gửi tiền khi nhận hàng (COD). Miễn phí giao hàng trên toàn quốc
                     
   app-footer
 

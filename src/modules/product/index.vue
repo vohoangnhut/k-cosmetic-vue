@@ -1,15 +1,16 @@
 <template lang="pug">
-div(v-loading.fullscreen.lock='loading')
-  .wrapper
-    .page-header.page-header-small
-      .page-header-image(data-parallax='true')
-      //- .content-center
-      //-   .row
-      //-     .col-md-8.ml-auto.mr-auto
-      //-       h1.title Hà Kim Lrocre
-    
+
+.wrapper
+  .page-header.page-header-small
+    .page-header-image(data-parallax='true')
+    //- .content-center
+    //-   .row
+    //-     .col-md-8.ml-auto.mr-auto
+    //-       h1.title Hà Kim Lrocre
+  .section
     .container
         .col-md-12
+          div(v-loading.fullscreen.lock='loading')
           .row
             .col-lg-12.col-md-12
               h3.title.title-large.title-center Sản Phẩm

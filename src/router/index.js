@@ -23,7 +23,7 @@ const router = new Router({
     },
     {
       path: '/',
-      name: 'Product',
+      name: 'Home',
       component: Product,
       meta: { requiresAuth: false, title: 'Product' }
     },
