@@ -137,7 +137,9 @@ export default {
 
 <style lang="scss" scoped>
 .page-header-image {
-  background-image: url('~img/cover-item.jpg');
+  background-image: url('~img/product_cover.png');
+  
+  // background-image: url('~img/cover-item.jpg');
   background-size: cover;
   background-position: center center;
   width: 100%;

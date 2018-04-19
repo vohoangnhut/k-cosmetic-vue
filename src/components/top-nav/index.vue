@@ -3,7 +3,7 @@ nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent(color-on-scroll='
   .container(:class='{ "nav-open": navOpen }')
     .navbar-translate
       a.navbar-brand(href='/', rel='tooltip', title='Ha Kim Lrocre', data-placement='bottom')
-        p.navigation-item.shadow-item Ha Kim Lrocre
+        p.navigation-item Ha Kim Lrocre
       button.navbar-toggler(type='button', 
         data-toggle='collapse', 
         data-target='#navigation', 

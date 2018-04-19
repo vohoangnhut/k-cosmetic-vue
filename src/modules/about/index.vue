@@ -16,33 +16,33 @@
           b HaKim Lrocre 
           | Website chính thức của Công ty TNHH MTV Đào tạo SXTM Lyona Beauty & Cosmetic, chuyên cung cấp độc quyền dòng kem Lro’cre chính hãng :
         
-        h6.title-red Khi trở thành nhà phân phối – Đại lý của mỹ phẩm Lro’cre bạn nhận được:
+        h4.title-red Khi trở thành nhà phân phối – Đại lý của mỹ phẩm Lro’cre bạn nhận được:
         ul
           li Mức chiết khấu cao -Hấp dẫn nhất.
           li Hỗ trợ bao bì đẹp có gắn logo độc quyền của HaKim Lrocre
           li Độc quyền phân phối sản phẩm tại thành phố, khu vực.
           li Hỗ trợ các hoạt động khuyến mãi, hoạt động bán hàng…
 
-        h6.title-red Quyền lợi về pháp lý:
+        h4.title-red Quyền lợi về pháp lý:
         ul
           li Sản phẩm có đầy đủ chứng từ xuất xứ sản phẩm và nguồn góc xuất xứ nguyên liệu
           li Tất cả các sản phẩm Lro’cre có tem chống hàng giả điện tử của Bộ Công An
           li Sản phẩm có giấy tờ lưu hàng trên toàn quốc
           li Được xuất hóa đơn đỏ khi tới tay người tiêu dùng
 
-        h6.title-red Giá cả sản phẩm:
+        h4.title-red Giá cả sản phẩm:
         ul
           li 
             | Cam kết mang đến cho các Nhà Phân Phối mức p Giá hợp lý và mức chiết khấu hấp dẫn nhất – Chỉ có tại 
             b HaKim Lrocre
 
-        h6.title-red Quyền lợi đổi trả:
+        h4.title-red Quyền lợi đổi trả:
         ul
           li Được đổi sản phẩm mới nếu hộp sản phẩm bị vỡ hoặc móp méo trong quá trình vận chuyển hay quá trình gửi hàng.
           li Sản phẩm khách dùng không hài lòng sẽ được đổi trả.
           li Được đổi hoặc trả hàng nếu trong một khoảng thời gian Nhà Phân Phối không bán được hàng
 
-        h6.title-red Dành cho khách sỉ:
+        h4.title-red Dành cho khách sỉ:
         p Hiện nay, có rất nhiều bạn trẻ có nhu cầu khởi nghiệp nhưng nguồn vốn còn hạn chế nên chúng tôi có chương trình cộng tác viên dành cho ai có đam mê kinh doanh.
 
         ul
@@ -93,7 +93,7 @@
             img.img.img-raised.rounded.iamge-center(src='~img/examples/img3.jpg')
         br
 
-        h6.title-red Với những thành tích liên tiếp mà Lro’Cre đạt được như.
+        h4.title-red Với những thành tích liên tiếp mà Lro’Cre đạt được như.
         ul
           li Doanh nhân Doanh nghiệp và Báo chí.
           li Thương hiệu danh tiếng, Doanh nhân Doanh nghiệp của năm do Chủ tịch nước ban tặng.
@@ -102,7 +102,7 @@
           li Thương hiệu Danh tiếng Bảo vệ Sức khoẻ cộng đồng 2014.
           li Thương hiệu Việt, hàng Việt được yêu thích nhất năm 2015 .
         
-        h6.title-red Bên cạnh đó Công Ty Mỹ Phẩm Lro’Cre còn đạt các tiêu chuẩn về an toàn như:
+        h4.title-red Bên cạnh đó Công Ty Mỹ Phẩm Lro’Cre còn đạt các tiêu chuẩn về an toàn như:
         ul
           li Tem chống giả do Bộ Công An cấp.
           li Giấy kiểm định của Sở Y Tế cho từng loại sản phẩm.
@@ -355,175 +355,188 @@
           .col-md-4.ml-auto
             b 1) Tinh chất bôi nở ngực Mộc Sữa ( Dạng tinh chất thoa , thảo mộc nhẹ nhàng quyến rũ , giúp săn chắc , nở ngực hiệu quả , làm sáng da nhất là nhũ hoa ) 
             p Giá lẻ: 500k
-            ul
-              li Trên 5 : 320k
-              li Trên 20 : 300k
-              li Trên 45 : 280k
-              li Trên 100 : 265k
+            li Trên 5 : 320k
+            li Trên 20 : 300k
+            li Trên 45 : 280k
+            li Trên 100 : 265k
           .col-md-4.ml-auto
             b 2) Bột Lymix 3in1 uống như dạng ngũ cốc – an toàn tuyệt đối 100% thiên nhiên . Tăng kích thước vòng 1 hiệu quả – Còn giúp tăng cân hoặc giảm cân theo ý muốn ( theo công thức trong hộp đi kèm ) 500gram. 
             p Giá lẻ : 400k
-            ul
-              li Trên 5 : 230k
-              li Trên 20 : 210k
-              li Trên 50 : 190k
-              li Trên 100 : 170k
+            li Trên 5 : 230k
+            li Trên 20 : 210k
+            li Trên 50 : 190k
+            li Trên 100 : 170k
           .col-md-4.ml-auto
             b 3) Tan mỡ cô đặc Limix
             p Giá lẻ : 570k ( Kèm đai vải )
-            ul
-              li Trên 5 : 380k
-              li Trên 20 : 360k
-              li Trên 50 : 340k
-              li Trên 100 : 320
+            li Trên 5 : 380k
+            li Trên 20 : 360k
+            li Trên 50 : 340k
+            li Trên 100 : 320
             p Giá lẻ : 500k (Không đai)
-            ul
-              li Trên 5 : 330k
-              li Trên 20 : 310k
-              li Trên 50 : 290k
-              li Trên 100 : 270k
+            li Trên 5 : 330k
+            li Trên 20 : 310k
+            li Trên 50 : 290k
+            li Trên 100 : 270k
         .row
           .col-md-4.ml-auto
             b Bách quả ocoly ( Thiết kế tinh tế cực đẹp )
             p Liệu trình 15 Ngày
-            ul
-              li Trên 5: 250k
-              li Trên 20: 220k
-              li Trên 45: 210k
-              li Trên 100 : 190k
+            li Trên 5: 250k
+            li Trên 20: 220k
+            li Trên 45: 210k
+            li Trên 100 : 190k
             p Liệu trình 30 ngày
-            ul
-              li Trên 5: 400k
-              li Trên 20: 375k
-              li Trên 45: 350k
-              li Trên 100 : 325k
+            li Trên 5: 400k
+            li Trên 20: 375k
+            li Trên 45: 350k
+            li Trên 100 : 325k
           .col-md-4.ml-auto
             b BẢNG GIÁ NƯỚC HOA LRO’CRE FASCINO 50ml 
             p Giá lẻ: 550.000đ
-            ul            
-              li Số lượng sỉ trên 5: 350.000đ
-              li Số lượng sỉ trên 20: 310.000đ
-              li Số lượng sỉ trên 45: 290.000đ
-              li Số lượng sỉ trên 100 : 270.000đ
-              li Số lượng sỉ trên 200 : 250.000đ 
+            li Số lượng sỉ trên 5: 350.000đ
+            li Số lượng sỉ trên 20: 310.000đ
+            li Số lượng sỉ trên 45: 290.000đ
+            li Số lượng sỉ trên 100 : 270.000đ
+            li Số lượng sỉ trên 200 : 250.000đ 
           .col-md-4.ml-auto
             b BẢNG GIÁ NƯỚC HOA LRO’CRE LUXURY 50ml 
             p Giá lẻ: 550.000đ
-            ul
-              li Số lượng sỉ trên 5: 350.000đ
-              li Số lượng sỉ trên 20: 310.000đ
-              li Số lượng sỉ trên 45: 290.000đ
-              li Số lượng sỉ trên 100 : 270.000đ
-              li Số lượng sỉ trên 200 : 250.000đ
+            
+            li Số lượng sỉ trên 5: 350.000đ
+            li Số lượng sỉ trên 20: 310.000đ
+            li Số lượng sỉ trên 45: 290.000đ
+            li Số lượng sỉ trên 100 : 270.000đ
+            li Số lượng sỉ trên 200 : 250.000đ
         .row
           .col-md-4.ml-auto
             b SERUM KIỀU BEAUTY QUEEN
-            ul
-              li Nhập 5 = 90.000
-              li Nhập 25 = 80.000
-              li Nhập 50 = 75.000
-              li Nhập 100= 65.000
-              li Nhập 300 = 55.000
+            
+            li Nhập 5 = 90.000
+            li Nhập 25 = 80.000
+            li Nhập 50 = 75.000
+            li Nhập 100= 65.000
+            li Nhập 300 = 55.000
           .col-md-4.ml-auto
             b TRÀ NẤM GIẢM CÂN
-            p Giá lẻ : 500k (liệu trình 15 ngày)
-            p Giá lẻ : 950k ( liệu trình 30 ngày)
-            ul
-              li Số lượng từ 5 giá : 400k
-              li Số lượng từ 10 giá : 350k
-              li Số lượng từ 20 giá : 320k
-              li Số lượng từ 50 giá : 290k
-              li Số lượng từ 100 giá 270k
+            p 
+              | Giá lẻ : 500k (liệu trình 15 ngày)
+              br 
+              | Giá lẻ : 950k ( liệu trình 30 ngày)
+            
+            li Số lượng từ 5 giá : 400k
+            li Số lượng từ 10 giá : 350k
+            li Số lượng từ 20 giá : 320k
+            li Số lượng từ 50 giá : 290k
+            li Số lượng từ 100 giá 270k
           .col-md-4.ml-auto
             b  BẢNG GIÁ KEM THƯỢNG LƯU: 
             p Giá lẻ 680k
-            ul
-              li Trên 5: 470
-              li Trên 20 : 430
-              li Trên 45 : 390
-              li Trên 100 : 350
+            
+            li Trên 5: 470
+            li Trên 20 : 430
+            li Trên 45 : 390
+            li Trên 100 : 350
         h3.title.title-large BẢNG GIÁ CÁC MẶT HÀNG ZN
         .row
           .col-md-4.ml-auto
             b TRÀ GIẢM CÂN HOA SÂM ĐẤT
-            p Giá lẻ : 600k (liệu trình 15 ngày)
-            p Giá lẻ : 1150k ( liệu trình 30 ngày)
-            p → Giá nhập sỉ:
-            ul
-              li số lượng 5 giá : 440k
-              li Số lượng 10 giá : 420k
-              li Số lượng 20 giá : 400k
-              li Số lượng 50 giá : 380k
-              li số lượng 100 giá 360k
+            p 
+              | Giá lẻ : 600k (liệu trình 15 ngày)
+              br
+              | Giá lẻ : 1150k ( liệu trình 30 ngày)
+              br
+              | → Giá nhập sỉ:
+            
+            li số lượng 5 giá : 440k
+            li Số lượng 10 giá : 420k
+            li Số lượng 20 giá : 400k
+            li Số lượng 50 giá : 380k
+            li số lượng 100 giá 360k
           .col-md-4.ml-auto
             b TRÀ TĂNG CÂN HOÀN HỒNG CHI
-            p giá lẻ 500.000 (15 ngày)
-            p giá lẻ 950.000 (30 ngày)
-            p → Giá nhập sỉ:
-            ul
-              li Trên 5: 360k
-              li Trên 10: 340k
-              li Trên 20: 320k
-              li Trên 50: 310k
-              li Trên 100: 290k
+            p 
+              | Giá lẻ 500.000 (15 ngày)
+              br
+              | Giá lẻ 950.000 (30 ngày)
+              br
+              | → Giá nhập sỉ:
+            
+            li Trên 5: 360k
+            li Trên 10: 340k
+            li Trên 20: 320k
+            li Trên 50: 310k
+            li Trên 100: 290k
           .col-md-4.ml-auto
             b MẦM SINH tăng size vòng 1.
-            p Giá lẻ: 650/1 liệu trình (1 hộp trà + 1 serum tăng kích cỡ vòng 1)
-            p → Giá nhập sỉ:
-            ul
-              li Trên 5: 490k
-              li Trên 10: 470k
-              li Trên 20: 450k
-              li Trên 50: 430k
-              li Trên 100: 410k
+            p 
+              | Giá lẻ: 650/1 liệu trình (1 hộp trà + 1 serum tăng kích cỡ vòng 1)
+              br
+              | → Giá nhập sỉ:
+            
+            li Trên 5: 490k
+            li Trên 10: 470k
+            li Trên 20: 450k
+            li Trên 50: 430k
+            li Trên 100: 410k
         .row
           .col-md-4.ml-auto
             b CAO LÁ RỪNG ZN
-            p Giá lẻ : 350k
-            p → Giá nhập sỉ:
-            ul
-              li Trên 5 : 230k
-              li Trên 10 : 210k
-              li Trên 20 : 190k
-              li Trên 50 : 180k
-              li Trên 100 : 170k
+            p 
+              | Giá lẻ : 350k
+              br
+              | → Giá nhập sỉ:
+            
+            li Trên 5 : 230k
+            li Trên 10 : 210k
+            li Trên 20 : 190k
+            li Trên 50 : 180k
+            li Trên 100 : 170k
           .col-md-4.ml-auto
             b PHẤN LẠNH ZN
-            p Giá bán lẻ 280k ( Sử dụng trên 5 tháng)
-            p → Giá nhập sỉ:
-            ul
-              li Giá trên 5: 180k
-              li Giá trên 10: 170k
-              li Giá trên 20: 160k
-              li Giá trên 50 : 150k
-              li Giá trên 100: 140k
+            p 
+              | Giá bán lẻ 280k ( Sử dụng trên 5 tháng)
+              br
+              | → Giá nhập sỉ:
+            
+            li Giá trên 5: 180k
+            li Giá trên 10: 170k
+            li Giá trên 20: 160k
+            li Giá trên 50 : 150k
+            li Giá trên 100: 140k
           .col-md-4.ml-auto
             b Nước Súc Miệng BẢO MỆNH NHA
-            p Giá lẻ: 330
-            p → Giá sỉ sản phẩm.
-            ul
-              li 5: 230
-              li 20: 210
-              li 50: 190
-              li 100: 170
+            p 
+              | Giá lẻ: 330
+              br
+              | → Giá nhập sỉ:
+            
+            li 5: 230
+            li 20: 210
+            li 50: 190
+            li 100: 170
         .row
           .col-md-4.ml-auto
             b Giá đai quấn nịt bụng, tay, đùi
-            p Giá lẻ : 150k
-            p → Giá nhập sỉ:
-            ul
-              li 5 -10 giá 100k
-              li 20-50 giá 90k
-              li 100-150 giá 85k
+            p 
+              | Giá lẻ : 150k
+              br
+              | → Giá nhập sỉ:
+            
+            li 5 -10 giá 100k
+            li 20-50 giá 90k
+            li 100-150 giá 85k
           .col-md-4.ml-auto
             b SẢN PHẨM PHỤ KHOA KHIẾT ÂM ZN
-            p Giá bán lẻ: 470.000
-            p → Giá sỉ sản phẩm.
-            ul
-              li 100: 290
-              li 50: 310
-              li 20: 330
-              li 5: 350
+            p 
+              | Giá bán lẻ: 470.000
+              br
+              | → Giá nhập sỉ:
+            
+            li 100: 290
+            li 50: 310
+            li 20: 330
+            li 5: 350
           .col-md-4.ml-auto
   app-footer
 
@@ -557,12 +570,14 @@ export default {
   margin-top: 0px;
   text-shadow: 1px 1px black;
 }
-.title-red{
-  color: #b63232
+.title-red {
+  color: #b63232;
+  text-transform: uppercase;
 }
 
 .title-large {
-  color: #b63232
+  color: #b63232;
+  text-transform: uppercase;
 }
 .page-header-image {
   background-image: url('~img/cover.ddb0f91.jpg');
@@ -578,5 +593,10 @@ export default {
   margin-left: auto;
   margin-right: auto;
   width: 70%;
+}
+
+li {
+  line-height: 1.61em;
+  font-size: 1.2em;
 }
 </style>
