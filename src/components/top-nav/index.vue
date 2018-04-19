@@ -14,7 +14,7 @@ nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent(color-on-scroll='
         span.navbar-toggler-bar.bar3
     .collapse.navbar-collapse(data-nav-image='../assets/img/blurred-image-1.jpg', data-color='orange')
       ul.navbar-nav.ml-auto(@click='toggleNavBar')
-        item(to='/', title='Home', icon="tech_mobile")
+        item(to='/daily', title='Đại Lý', icon="business_money-coins")
         item(to='/product', title='Sản Phẩm', icon="shopping_bag-16")
         //- item(to='/about', title='About', icon="emoticons_satisfied")
         //- item(to='/qa', title='Hỏi đáp', icon="ui-2_chat-round")

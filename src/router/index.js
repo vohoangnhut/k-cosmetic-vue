@@ -19,10 +19,17 @@ const router = new Router({
   mode: 'history',
   routes: [{
       path: '*',
-      redirect: '/'
+      redirect: '/product'
     },
     {
       path: '/',
+      name: 'Product',
+      component: Product,
+      meta: { requiresAuth: false, title: 'Product' }
+    },
+
+    {
+      path: '/daily',
       name: 'About',
       component: About,
       meta: { requiresAuth: false, title: 'About' }

@@ -1,26 +1,27 @@
 <template lang="pug">
-.wrapper
-  .page-header.page-header-small
-    .page-header-image(data-parallax='true')
-    .content-center
-      .row
-        .col-md-8.ml-auto.mr-auto
-          h1.title Hà Kim Lrocre
-  
-  .container
-      .col-md-12
-        .row
-          .col-lg-12.col-md-12
-            h3.title.title-large.title-center Sản Phẩm
-        .row
-          .col-lg-3.col-md-4(v-for='(item, index) in lstProducts', :key='index')
-            .card.card-product.card-plain
-              .card-image(@click='gotoDetails(item.key)')
-                img.product-img(:src='item.images ? item.images[0].url : exmapleImageProduct', alt='...Product...Image...')
-              .card-body
-                h4.card-title {{ item.name }}
-                p.card-description
-                  | {{ formatCurrency(item.price) }} VNĐ
+div(v-loading.fullscreen.lock='loading')
+  .wrapper
+    .page-header.page-header-small
+      .page-header-image(data-parallax='true')
+      //- .content-center
+      //-   .row
+      //-     .col-md-8.ml-auto.mr-auto
+      //-       h1.title Hà Kim Lrocre
+    
+    .container
+        .col-md-12
+          .row
+            .col-lg-12.col-md-12
+              h3.title.title-large.title-center Sản Phẩm
+          .row
+            .col-lg-3.col-md-4(v-for='(item, index) in lstProducts', :key='index')
+              .card.card-product.card-plain
+                .card-image(@click='gotoDetails(item.key)')
+                  img.product-img(:src='item.images ? item.images[0].url : exmapleImageProduct', alt='...Product...Image...')
+                .card-body
+                  h4.card-title {{ item.name }}
+                  p.card-description
+                    | {{ formatCurrency(item.price) }} VNĐ
            
   app-footer
 </template>
@@ -39,6 +40,7 @@ export default {
       exmapleImageProduct : 'assets/img/wooyoungmi.jpg',
 
       theLastItem: {},
+      loading: false,
     };
   },
 
@@ -64,6 +66,7 @@ export default {
     },
 
     getData() {
+      this.loading = true;
       this.lstProducts = [];
       let query = this.$db.ref('products').orderByChild('createdAt')
       //.limitToFirst(4);
@@ -82,6 +85,9 @@ export default {
         this.lstProducts.push(valueItem);
 
         this.theLastItem = item;
+
+        this.loading = false;
+        
       });
       
       // this.lstProducts = [];

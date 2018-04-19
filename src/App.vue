@@ -1,5 +1,7 @@
 <template lang="pug">
+
 .app
+  .fb-customerchat(attribution='setup_tool', page_id='1102364296531228', theme_color='#7646ff', logged_in_greeting='Chào bạn! Bạn muốn tìm sản phẩm gì?', logged_out_greeting='Chào bạn! Bạn muốn tìm sản phẩm gì?')
   top-nav
   .wrapper
     router-view.animated.fadeIn(keep-alive)
