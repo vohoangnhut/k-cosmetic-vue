@@ -10,19 +10,19 @@ footer.footer.footer-big(data-background-color='black')
 						.feed-line
 							i.fa.fa-map-marker
 							b Địa chỉ
-							p 17A Hồ Xuân Hương-P6-Q3-TP-HCM
+							p 17A Hồ Xuân Hương P.6 Q.3 TP.HCM
 						.feed-line
 							i.fa.fa-phone
 							b Hotline 24/7
-							p 0162.638.5576
+							p 01626385576
 				.col-md-4
-					h5 SHIP COD
+					h5 GIAO HÀNG
 					hr
 					img.img-center(src='~img/examples/footer_banner-2.png')
 				
 				
 				.col-md-4
-					h5 FANPAGE HOME
+					h5 FANPAGE
 					hr
 					iframe(src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flrocre.hakim%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId', 
 					width='100%', height='130', 

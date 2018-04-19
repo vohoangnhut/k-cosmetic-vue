@@ -6,7 +6,8 @@
       .row
         .col-md-12.ml-auto.mr-auto.text-center
           h2.title Hà Kim Lrocre
-          h4 CHUYÊN PHÂN PHỐI MỸ PHẨM LRO’CRE CHO CÁC ĐẠI LÝ, SỈ VÀ LẺ MIỄN PHÍ GIAO HÀNG TRÊN TOÀN QUỐC
+          h4.introdute-text  CHUYÊN PHÂN PHỐI MỸ PHẨM LRO’CRE CHO CÁC ĐẠI LÝ, SỈ VÀ LẺ
+          h4.introdute-text-above  MIỄN PHÍ GIAO HÀNG TRÊN TOÀN QUỐC
   .section
     .container
       .col-md-12.ml-auto.mr-auto
@@ -547,6 +548,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.introdute-text {
+  margin-bottom: 0px;
+  text-shadow: 1px 1px black;
+}
+
+.introdute-text-above {
+  margin-top: 0px;
+  text-shadow: 1px 1px black;
+}
 .title-red{
   color: #b63232
 }
@@ -555,7 +565,7 @@ export default {
   color: #b63232
 }
 .page-header-image {
-  background-image: url('~img/cover.jpg');
+  background-image: url('~img/cover.ddb0f91.jpg');
   background-size: cover;
   background-position: center center;
   width: 100%;

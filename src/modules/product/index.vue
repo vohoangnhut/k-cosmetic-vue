@@ -160,7 +160,7 @@ export default {
   padding-top: 150px !important;
 }
 .page-header-image {
-  background-image: url('~img/cover.jpg');  
+  background-image: url('~img/cover.ddb0f91.jpg');  
   background-size: cover;
   background-position: center center;
   width: 100%;

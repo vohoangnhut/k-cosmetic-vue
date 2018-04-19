@@ -41,10 +41,10 @@
               .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg28.jpg')")
                 .info
                   .icon.icon-white
-                    i.now-ui-icons.emoticons_satisfied
+                    i.now-ui-icons.objects_diamond
                   .description
                     h4.info-title Cam kết
-                    p Mỹ phẩm Trắng da Lro'cre chiết xuất từ thiên nhiên Đảm bảo an toàn - hiệu quả 100%
+                    p Mỹ phẩm Trắng da Lro'cre chiết xuất từ thiên nhiên. Đảm bảo an toàn - hiệu quả 100%
                     
             .col-md-4
               .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg24.jpg')")

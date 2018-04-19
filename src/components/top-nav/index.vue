@@ -3,7 +3,7 @@ nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent(color-on-scroll='
   .container(:class='{ "nav-open": navOpen }')
     .navbar-translate
       a.navbar-brand(href='/', rel='tooltip', title='Ha Kim Lrocre', data-placement='bottom')
-        | Ha Kim Lrocre
+        p.navigation-item.shadow-item Ha Kim Lrocre
       button.navbar-toggler(type='button', 
         data-toggle='collapse', 
         data-target='#navigation', 
@@ -14,8 +14,8 @@ nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent(color-on-scroll='
         span.navbar-toggler-bar.bar3
     .collapse.navbar-collapse(data-nav-image='../assets/img/blurred-image-1.jpg', data-color='orange')
       ul.navbar-nav.ml-auto(@click='toggleNavBar')
-        item(to='/daily', title='Đại Lý', icon="business_money-coins")
-        item(to='/product', title='Sản Phẩm', icon="shopping_bag-16")
+        item.navigation-item(to='/daily', title='Đại Lý', icon="business_money-coins")
+        item.navigation-item(to='/product', title='Sản Phẩm', icon="shopping_bag-16")
         //- item(to='/about', title='About', icon="emoticons_satisfied")
         //- item(to='/qa', title='Hỏi đáp', icon="ui-2_chat-round")
         //item(to='/login', title='Đăng nhập', icon="business_badge")
@@ -66,6 +66,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.navigation-item {
+  font-size: 20px;
+}
+
+.shadow-item {
+  text-shadow: 1px 1px black;
+}
 .nav-cus {
   position: fixed;
   top: 0;
