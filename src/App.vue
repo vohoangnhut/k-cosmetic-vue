@@ -5,7 +5,6 @@
   top-nav
   .wrapper
     router-view.animated.fadeIn(keep-alive)
-  //- app-footer(v-if='allowFooter')
 </template>
 
 <script>
