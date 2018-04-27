@@ -69,7 +69,7 @@
                   .icon
                     i.now-ui-icons.shopping_delivery-fast
                   .description
-                    h4.info-title Vận Chuyễn
+                    h4.info-title Vận Chuyển
                     p(style="color: #000;font-weight: 500;")
                       | Chuyển khoản hoặc thanh toán khi nhận hàng (COD). Miễn phí giao hàng trên toàn quốc
                     
