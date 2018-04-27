@@ -14,7 +14,9 @@ footer.footer.footer-big(data-background-color='black')
 						.feed-line
 							i.fa.fa-phone
 							b Hotline 24/7
-							p 01626385576
+							p 
+								a(href="tel:841626385576")
+									| 0162.638.5576
 				.col-md-4
 					h5 GIAO HÀNG
 					hr

@@ -38,31 +38,40 @@
             //-     | Havenly is a convenient, personal and affordable way to redecorate your home room by room. Collaborate with our professional interior designers on our online platform.
           .row
             .col-md-4
-              .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg28.jpg')")
+              .card.card-raised.card-footer-style
                 .info
-                  .icon.icon-white
+                  .icon
                     i.now-ui-icons.objects_diamond
                   .description
                     h4.info-title Cam kết
-                    p Mỹ phẩm Trắng da Lro'cre chiết xuất từ thiên nhiên. Đảm bảo an toàn - hiệu quả 100%
+                    p(style="color: #000;font-weight: 500;")                    
+                      | Hàng chính hãng
+                      br                    
+                      | Chiết xuất thiên nhiên
+                      br
+                      | An toàn - Hiệu quả
                     
             .col-md-4
-              .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg24.jpg')")
+              .card.card-raised.card-footer-style
                 .info
-                  .icon.icon-white
+                  .icon
                     i.now-ui-icons.tech_mobile
                   .description
                     h4.info-title Liên Hệ
-                    p Qua số điện thoại 01626385576 hoặc chat trực tiếp với chúng tôi qua Facebook ngay phía góc phải
+                    p(style="color: #000;font-weight: 500;")
+                      | Qua số điện thoại 
+                      a(href="tel:841626385576") 0162.638.5576 
+                      | hoặc chat trực tiếp với chúng tôi qua Facebook ngay phía góc phải
                     
             .col-md-4
-              .card.card-background.card-raised(data-background-color='', style="background-image: url('~img/bg25.jpg')")
+              .card.card-raised.card-footer-style
                 .info
-                  .icon.icon-white
+                  .icon
                     i.now-ui-icons.shopping_delivery-fast
                   .description
                     h4.info-title Vận Chuyễn
-                    p Chuyển khoản hoặc gửi tiền khi nhận hàng (COD). Miễn phí giao hàng trên toàn quốc
+                    p(style="color: #000;font-weight: 500;")
+                      | Chuyển khoản hoặc thanh toán khi nhận hàng (COD). Miễn phí giao hàng trên toàn quốc
                     
   app-footer
 
@@ -136,9 +145,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card-footer-style {
+  background-color: #e5e5e5 !important;
+}
+
 .page-header-image {
   background-image: url('~img/product_cover.png');
-  
+
   // background-image: url('~img/cover-item.jpg');
   background-size: cover;
   background-position: center center;
